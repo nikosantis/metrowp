@@ -1,0 +1,96 @@
+.footer {
+    text-align: center;
+    @include MQ(lg) {
+        text-align: left;
+    }
+    &-top {
+        background-color: #ffffff;
+        padding-top: 45px;
+        padding-bottom: 45px;
+        p {
+            color: $color-h;
+            margin: 0;
+            font-size: 0.75rem;
+            a {
+                color: $color-h;
+                font-weight: bold;
+            }
+        }
+    }
+    &-center {
+        background-color: $color-h;
+        padding-top: 60px;
+        padding-bottom: 45px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        .brand-footer {
+            width: 260px;
+        }
+        &__title {
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            @include MQ(lg) {
+                margin-top: 35px;
+            }
+        }
+        &__nav {
+            li {
+                margin-bottom: 10px;
+                a {
+                    text-transform: uppercase;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 600;
+                    color: rgba($color-g,.8);
+                    font-size: 0.875rem;
+                    &:hover {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+        .ul-brand {
+            margin-bottom: 35px;
+            @include MQ(lg) {
+                margin-bottom: 16px;
+            }
+            li {
+                -ms-flex-pack: center!important;
+                justify-content: center!important;
+                @include MQ(lg) {
+                    -ms-flex-pack: start!important;
+                    justify-content: start!important;
+                }
+            }
+            svg {
+                color: #ffffff;
+            }
+            &__text {
+                color: #ffffff;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                b {
+                    margin-bottom: 10px;
+                }
+                a {
+                    color: rgba(255, 255, 255, 0.9);
+                    &:hover {
+                        color: #ffffff;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+    &-bottom {
+        background-color: $color-h;
+        p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            a {
+                color: #ffffff;
+                font-weight: 500;
+            }
+        }
+    }
+    
+}

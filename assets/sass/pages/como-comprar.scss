@@ -1,0 +1,90 @@
+.main-home, .main-proyecto {
+    .comocomprar {
+        padding-top: 60px;
+        padding-bottom: 50px;
+        @include MQ(lg) {
+            padding-bottom: 90px;
+            padding-bottom: 60px;
+        }
+        &-title {
+            text-transform: uppercase;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 35px;
+        }
+        &-subtitle {
+            font-size:1.25rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+        &-text {
+            font-size: 1.125rem;
+            margin-bottom: 30px;
+        }
+    }
+}
+.main-comocomprar {
+    .hero {
+        position: relative;
+        padding-top: 105px;
+        &-intro {
+            padding-top: 60px;
+            padding-bottom: 50px;
+            @include MQ(lg) {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+            &__titulo {
+                font-size: 1.875rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: #ffffff;
+            }
+            .breadcrumb {
+                background-color: transparent;
+            }
+        }
+    }
+    .comocomprar-intro {
+        padding-top: 60px;
+        padding-bottom: 15px;
+        @include MQ(lg) {
+            padding-bottom: 90px;
+            padding-bottom: 60px;
+        }  
+        &-subtitulo {
+            font-size:1.25rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+        &-text {
+            font-size: 1.125rem;
+            margin-bottom: 30px;
+        }
+    }
+    .comocomprar-subsidio {
+        padding-top: 60px;
+        padding-bottom: 50px;
+        @include MQ(lg) {
+            padding-bottom: 90px;
+            padding-bottom: 60px;
+        }
+        p {
+            font-size: 1.125rem;
+            margin-bottom: 35px;
+        }
+        ul {
+            font-size: 1rem;
+            margin-bottom: 35px;
+        }
+    }
+    .comocomprar-contacto {
+        background-color: $color-g;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        @include MQ(lg) {
+            padding-top: 90px;
+            padding-bottom: 60px;
+        }
+    }
+}

@@ -1,0 +1,90 @@
+.btn {
+    line-height: 1;
+    padding: .6rem .75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0;
+}
+.btn-mgi {
+    color: #ffffff;
+    background-color: $color-m;
+    border-color: $color-m;
+    font-weight: 700;
+    text-transform: uppercase;
+    &:hover {
+        color: #ffffff;
+        background-color: $color-h;
+        border-color: $color-h;
+    }
+}
+.btn-mgi-2 {
+    color: #ffffff;
+    background-color: $color-m;
+    border-color: $color-m;
+    font-weight: 700;
+    text-transform: uppercase;
+    &:hover {
+        color: #ffffff;
+        background-color: $color-m;
+        border-color: $color-m;
+    }
+}
+.btn-back {
+    background-color: $color-h;
+    color: #ffffff;
+    padding: 25px 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    &:hover {
+        color: #ffffff;
+        background-color: $color-m;
+        border-color: $color-m;
+    }
+}
+.btn-cot {
+    background-color: $color-m;
+    color: #ffffff;
+    padding: 35px 0px;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 999;
+    border: none;
+    width: 100%;
+    font-size: 1.25rem;
+    height: 100px;
+    &:hover {
+        color: #ffffff;
+        background-color: $color-h;
+        border-color: $color-h;
+    }
+}
+.btn-info {
+    background-color: $color-h;
+    color: #ffffff;
+    padding: 12px 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 999;
+    border: none;
+    width: 100%;
+    font-size: 1.125rem;
+    height: 100px;
+    line-height: 1.4;
+    @include MQ(md) {
+        padding: 26px 10px;
+    }
+    @include MQ(lg) {
+        padding: 12px 10px;
+    }
+    &:hover {
+        color: #ffffff;
+        background-color: $color-m;
+        border-color: $color-m;
+    }
+}
+.btn-info:hover {
+    color: #ffffff;    
+}

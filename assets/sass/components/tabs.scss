@@ -1,0 +1,31 @@
+.nav-pills .nav-item {
+    margin-bottom: 15px;
+    @include MQ(lg) {
+        margin-bottom: 0;
+    }
+}
+.nav-pills .nav-link {
+    color: $color-black;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.375rem;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    @include MQ(lg) {
+        font-size: 1.625rem;;
+        margin-right: 25px;
+    }
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: $color-m;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.375rem;
+    background-color: transparent;
+    border-bottom: 2px solid $color-m;
+    padding-bottom: 5px;
+    @include MQ(lg) {
+        font-size: 1.625rem;;
+    }
+}

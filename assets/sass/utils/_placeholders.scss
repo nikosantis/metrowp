@@ -1,0 +1,24 @@
+%no-margin{
+  margin: 0;
+  padding: 0;
+}
+%center-flex{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+%section-height{
+  min-height: 450px;
+}
+%bk-icon {
+  content:"";
+  width: 20px;
+  height: 20px;
+  transition: .3s all ease-in;
+  @include MQ(1200px){
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    left: -2px;
+  }
+}

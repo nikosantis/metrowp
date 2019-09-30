@@ -1,0 +1,202 @@
+.main-home {
+    .hero {
+        position: relative;
+        padding-top: 105px;
+        .row {
+            margin-left: -15px;
+            margin-right: -15px;
+            height: 450px;
+        }
+        &-title {
+            padding-left: 30px;
+            padding-top: 30px;
+            font-size: 1.625rem;
+        }
+        &-subtitle {
+            padding-left: 30px;
+            font-size: 1.375rem;
+            font-weight: 500;
+        }
+        &-intro {
+            top: 50%;
+            z-index: 1;
+            right: 0;
+            width: 100%;
+            position: relative;
+            height: 160px;
+            @include MQ(md) {
+                position: absolute;
+                top: unset;
+                bottom: 0;
+                left: 0; 
+                width: 400px;   
+            }
+            @include MQ(lg) {
+                position: absolute;
+                width: 50%;
+                right: 0;
+                left: unset; 
+                top: 55%;
+                bottom: unset;
+            }
+            &__box {
+                position: absolute;
+                width: 100%;
+                background-color: #373f48;
+                @include MQ(md) {
+                    bottom: 0;
+                }
+                @include MQ(lg) {
+                    width: calc(100% - 22vw);
+                    top: 0;
+                    left: 10%;
+                    bottom: unset;
+                }
+                &__title {
+                    color: #ffffff;
+                    margin-bottom: 25px;
+                }
+                &__label {
+                    position: relative;
+                    background-color: #ffffff;
+                    width: 100%;
+                    &__select {
+                        width: 100%;
+                        border-radius: 0;
+                        text-transform: uppercase;
+                        font-size: 14px;
+                        color: #000000;
+                        height: 50px;
+                        font-weight: 500;
+                        background: none;
+                    }
+                    &:after {
+                        content: "\f107";
+                        font-family: FontAwesome;
+                        position:absolute;
+                        top: 36%;
+                        right: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .proyectos {
+        padding-top: 60px;
+        padding-bottom: 50px;
+        @include MQ(md) {
+            padding-bottom: 90px;
+            padding-bottom: 90px;
+        }
+        &-title {
+        }
+        &-subtitle {
+            font-size:1.375rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+        &-text {
+            font-size: 1.125rem;
+            margin-bottom: 45px;
+        }
+        .proyecto {
+            position: relative;
+            &-thumb {
+                overflow: hidden;
+                height: 228px;
+                position: relative;
+            }
+            &-detalle {
+                &__info {
+                    margin-bottom: 5px;
+                    &__comuna {
+                        color: $color-m;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        font-size: 1.125rem;
+                    }
+                    &__uf {
+                        text-transform: uppercase;
+                        font-weight: 500;
+                        font-size: 1.125rem;
+                    }
+                }
+                &__ds {
+                    font-size: 1rem;
+                    margin-bottom: 15px;
+                    font-weight: 600;
+                }
+            }
+            &-entrega {
+                position: absolute;
+                background-color: $color-m;
+                top: 0;
+                right: 0;
+                color: #ffffff;
+                text-transform: uppercase;
+                padding: 10px 15px;
+                font-weight: 500;
+            }
+        }
+    }
+    .experiencia {
+        position: relative;
+        margin-bottom: 90px;
+        .row {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+        &-intro {
+            background: rgba($color-g, .8);
+            z-index: 2;
+            position: relative;
+            width: 100%;
+            margin-top: 0;
+            @include MQ(lg) {
+                position: absolute;
+                width: 50%;
+                margin-top: 60px;
+                left: 0;
+                background-color: $color-g;
+            }
+            &__box {
+                padding: 50px 35px;
+                &__title {
+                }
+                &__subtitle {
+                    font-size: 1.125rem;
+                }
+            }
+        }
+        &-data {
+            text-align: center;
+            margin-bottom: 25px;
+            margin-top: 25px;
+            @include MQ(md) {
+                text-align: left;
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+            &__time {
+                font-size: 1.375rem;
+                font-weight: 700;
+                font-family: 'Poppins', sans-serif;
+            }
+            &__text {
+                text-transform: uppercase;
+                font-size: 1.25rem;
+                line-height: 1.2;
+                font-weight: 600;
+            }
+        }
+        &-thumb {
+            height: 450px;
+        }
+    }
+    .subsidio {
+        padding-top: 90px;
+        padding-bottom: 90px;
+        background-color: $color-m;
+        margin-bottom: 90px;
+    }
+}

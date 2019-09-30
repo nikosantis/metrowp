@@ -1,0 +1,202 @@
+.main-home .carousel-home, .main-proyecto .carousel-proyecto, .main-proyecto .terminaciones-carousel, .main-proyecto  .galeria-carousel, .main-proyecto .barrio-carousel {
+    .owl-nav {
+        .owl-prev {
+            background-color: rgba($color-m1,.9);
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            -ms-transition: all .3s;
+            -o-transition: all .3s;
+            transition: all .3s;
+            &:hover {
+                background-color: $color-m1;
+                -webkit-transition: all .3s;
+                -moz-transition: all .3s;
+                -ms-transition: all .3s;
+                -o-transition: all .3s;
+                transition: all .3s;
+            }
+        }
+        .owl-next {
+            background-color: rgba( $color-m,.9);
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            -ms-transition: all .3s;
+            -o-transition: all .3s;
+            transition: all .3s;
+            &:hover {
+                background-color: $color-m;
+                -webkit-transition: all .3s;
+                -moz-transition: all .3s;
+                -ms-transition: all .3s;
+                -o-transition: all .3s;
+                transition: all .3s;
+            }
+        }
+    }
+}
+.main-home {
+    .hero {
+        &-carousel {
+            .carousel-home {
+                height: 450px;
+                &__item {
+                    &__img {
+                        height: 450px;
+                    }
+                    &__text {
+                        margin-bottom: 0;
+                        font-size: 1.375rem;
+                        font-weight: 400;
+                        b {
+                            font-weight: 600;
+                        }
+                    }
+                }
+                .owl-nav {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    @include MQ(lg) {
+                        right: -120px;
+                    }
+                    .owl-prev, .owl-next{
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 0;
+                        margin: 0;
+                        .svg-inline--fa {
+                            color: #ffffff;
+                            vertical-align: -3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.main-proyecto {
+    .hero {
+        &-carousel {
+            .carousel-proyecto {
+                height: 350px;
+                @include MQ(lg) {
+                    height: 480px;
+                }
+                &__item {
+                    &__img {
+                        height: 350px;
+                        @include MQ(lg) {
+                            height: 480px;
+                        }
+                    }
+                }
+                .owl-nav {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    @include MQ(lg) {
+                        bottom: 170px;
+                        right: -60px;
+                    }
+                    .owl-prev, .owl-next{
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 0;
+                        margin: 0;
+                        .svg-inline--fa {
+                            color: #ffffff;
+                            vertical-align: -3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .terminaciones {
+        &-carousel {
+            height: 400px;
+            &__item {
+                &__img {
+                    height: 400px;
+                }
+            }
+            .owl-nav {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                @include MQ(lg) {
+                    bottom: -60px;
+                    right: 0;
+                }
+                .owl-prev, .owl-next{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 0;
+                    margin: 0;
+                    .svg-inline--fa {
+                        color: #ffffff;
+                        vertical-align: -3px;
+                    }
+                }
+            }
+        }
+    }
+    .galeria {
+        &-carousel {
+            height: 350px;
+            @include MQ(lg) {
+                height: 450px;
+            }
+            &__item {
+                &__img {
+                    height: 350px;
+                    @include MQ(lg) {
+                        height: 450px;
+                    }
+                }
+            }
+            .owl-nav {
+                margin: 0;
+                .owl-prev, .owl-next{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 0;
+                    margin: 0;
+                    .svg-inline--fa {
+                        color: #ffffff;
+                        vertical-align: -3px;
+                    }
+                }
+            }
+        }
+    }
+    .barrio {
+        &-carousel {
+            height: 400px;
+            &__item {
+                &__img {
+                    height: 400px;
+                }
+            }
+            .owl-nav {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                @include MQ(lg) {
+                    bottom: -60px;
+                    left: 95px;
+                }
+                .owl-prev, .owl-next{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 0;
+                    margin: 0;
+                    .svg-inline--fa {
+                        color: #ffffff;
+                        vertical-align: -3px;
+                    }
+                }
+            }
+        }
+    }
+}
