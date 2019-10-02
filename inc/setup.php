@@ -25,7 +25,7 @@ function add_image_responsive_class($content) {
 	return $content;
 }
 add_filter('the_content', 'add_image_responsive_class');
- 
+
 function custom_excerpt_length( $length ) {
 	return 20;
 }
@@ -36,4 +36,6 @@ add_filter( 'wp_title', function( $title )
     return trim( $title );
 } );
 
-?>
+if (function_exists('acf_set_options_page_menu')){
+	acf_set_options_page_menu('Opciones de Plantilla');
+}
