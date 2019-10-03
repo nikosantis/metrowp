@@ -1,5 +1,5 @@
-<?php 
-    if ( is_singular( 'plantas' ) ) { 
+<?php
+    if ( is_singular( 'plantas' ) ) {
         $vincular = get_field('vincular_planta_a_proyecto');
         ?>
         <script>
@@ -23,7 +23,7 @@
             'paginaNombre': '<?php the_title();?>'
         }];
         </script>
-    <?php 
+    <?php
     }
 ?>
 

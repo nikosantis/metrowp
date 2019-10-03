@@ -1,0 +1,195 @@
+.page {
+    .hero {
+        position: relative;
+        padding-top: 71px;
+        @include MQ(lg) {
+            padding-top: 91px;
+        }
+        &-intro {
+            padding-top: 60px;
+            padding-bottom: 50px;
+            @include MQ(lg) {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+            &__titulo {
+                font-size: 1.875rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: #ffffff;
+            }
+            .breadcrumb {
+                background-color: transparent;
+            }
+        }
+    }
+}
+.proyectos-grid {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    @include MQ(md) {
+        padding-bottom: 90px;
+        padding-bottom: 90px;
+    }
+    &-text {
+        font-size: 1.125rem;
+        margin-bottom: 45px;
+    }
+    .proyecto {
+        position: relative;
+        &-thumb {
+            overflow: hidden;
+            position: relative;
+            img {
+                width: 100%;
+            }
+        }
+        &-detalle {
+            &__info {
+                margin-bottom: 5px;
+                &__comuna {
+                    color: $color-m;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    font-size: 1.125rem;
+                }
+                &__uf {
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    font-size: 1.125rem;
+                    @include MQ(lg) {
+                        display: block;
+                    }
+                    @include MQ(xl) {
+                        display: inline-block;
+                    }
+                    &::before {
+                        content:  '/ ';
+                        @include MQ(lg) {
+                            content:  '';
+                        }
+                        @include MQ(xl) {
+                            content:  '/ ';
+                        }
+                    }
+                }
+            }
+            &__ds {
+                font-size: 1rem;
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
+        }
+        &-entrega {
+            position: absolute;
+            background-color: $color-m;
+            top: 0;
+            right: 0;
+            color: #ffffff;
+            text-transform: uppercase;
+            padding: 10px 15px;
+            font-weight: 500;
+        }
+    }
+}
+.card {
+    border-radius: 0;
+}
+.box-circle-w {
+    border-radius: 50%;
+    border: 2px solid $color-black;
+    text-transform: uppercase;
+    text-align: center;
+    color: $color-black;
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: 50px 20px;
+    @include MQ(lg) {
+        height: 160px;
+    }
+}
+.box-circle-w-lg {
+    border-radius: 50%;
+    border: 3px solid $color-black;
+    text-transform: uppercase;
+    text-align: center;
+    color: $color-black;
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: 80px 20px;
+    @include MQ(lg) {
+        height: 220px;
+    }
+}
+.pdfobject-container {
+    height: 30rem;
+    border: 1rem solid rgba(0,0,0,.1);
+}
+.accordion {
+    .card {
+        &-header {
+            .btn {
+                font-weight: 600;
+            }
+        }
+    }
+}
+.experiencia-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 60px;
+    @include MQ(lg) {
+        padding-bottom: 0;
+    }
+    &__li {
+        padding: 3%;
+        @include MQ(lg) {
+            padding: 1%;
+        }
+        @include MQ(xl) {
+            padding: 3%;
+        }
+        .experiencia-data {
+            text-align: center;
+            margin-bottom: 0;
+            margin-top: 0;
+            color: #ffffff;
+            border: 2px solid #FFF;
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            @include MQ(lg) {
+                width: 165px;
+                height: 165px;
+            }
+            @include MQ(xl) {
+                width: 180px;
+                height: 180px;
+            }
+            &__time {
+                font-size: 1.25rem;
+                font-weight: 700;
+                font-family: 'Poppins', sans-serif;
+                color: #ffffff;
+            }
+            &__text {
+                text-transform: uppercase;
+                font-size: 1rem;
+                line-height: 1.2;
+                font-weight: 600;
+                color: #ffffff;
+            }
+        }
+    }
+}
+.box-mgi {
+    padding: 1.875rem;
+    border: 1px solid $color-g;
+}

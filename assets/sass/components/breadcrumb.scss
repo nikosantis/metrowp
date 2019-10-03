@@ -1,4 +1,4 @@
-.main-proyecto {
+.proyecto {
     .proyecto-breadcrumb {
         background-color: $color-g;
         .breadcrumb {
@@ -17,7 +17,44 @@
         }
     }
 }
-.main-comocomprar {
+.single-modelo {
+    .modelo-breadcrumb {
+        background-color: $color-g;
+        .breadcrumb {
+            background-color: $color-g;
+            margin-bottom: 0;
+            padding: 10px 0px;
+            &-item {
+                a {
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    color: rgba($color-black,0.7);
+                    &.active {
+                        color: $color-black;
+                    }
+                }
+            }
+        }
+    }
+}
+.page-custom {
+    .breadcrumb {
+        background-color: #ffffff;
+        margin-bottom: 20px;
+        padding: 10px 0;
+        &-item {
+            a {
+                font-weight: 600;
+                text-transform: uppercase;
+                color: rgba(0, 0, 0, 0.7);
+                &.active {
+                    color: rgba(0, 0, 0, 0.9);
+                }
+            }
+        }
+    }
+}
+.page-principal {
     .breadcrumb {
         background-color: #ffffff;
         margin-bottom: 0;

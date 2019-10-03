@@ -4,7 +4,7 @@
 if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
-function mgiwp_setup() {
+function metropwp_setup() {
 	add_editor_style('theme/css/editor-style.css');
 	add_theme_support('post-thumbnails');
 	update_option('thumbnail_size_w', 170);
@@ -14,7 +14,7 @@ function mgiwp_setup() {
 	add_image_size('home_carousel', 787, 450, true);
 	add_image_size('modelo_thumb', 350, 233, true);
 }
-add_action('init', 'mgiwp_setup');
+add_action('init', 'metropwp_setup');
 
 // add default class for img-responsive
 function add_image_responsive_class($content) {

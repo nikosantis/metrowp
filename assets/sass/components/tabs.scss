@@ -1,31 +1,78 @@
+.nav-tabs {
+    border: 0;
+    justify-content: space-between;
+    @include MQ(md) {
+        justify-content: center;
+    }
+    .nav-link {
+        color: rgba(0,0,0,.7);
+        border: 0;
+        border-radius: 0;
+        padding: 15px 25px;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    & .nav-item.show .nav-link, & .nav-link.active {
+        color: rgba(0,0,0,.9);
+        background-color: #ffffff;
+    }
+}
+.tab-content {
+    background: #fff;
+    padding: 4rem;
+    p {
+        margin: 0;
+    }
+}
 .nav-pills .nav-item {
-    margin-bottom: 15px;
-    @include MQ(lg) {
-        margin-bottom: 0;
-    }
+    margin: 15px 5px;
 }
-.nav-pills .nav-link {
-    color: $color-black;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 1.375rem;
-    background-color: transparent;
+.nav-pills .nav-item .nav-link, .nav-tabs .nav-item .nav-link {
+    padding: .6rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
     border-radius: 0;
-    padding: 0;
-    @include MQ(lg) {
-        font-size: 1.625rem;;
-        margin-right: 25px;
-    }
-}
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    color: $color-m;
+    font-weight: 700;
     text-transform: uppercase;
-    font-weight: 600;
-    font-size: 1.375rem;
-    background-color: transparent;
-    border-bottom: 2px solid $color-m;
-    padding-bottom: 5px;
-    @include MQ(lg) {
-        font-size: 1.625rem;;
+}
+.nav-pills .nav-item .nav-link {
+    color: rgba(0,0,0,.7);
+}
+.nav-pills .nav-item .nav-link:active, .nav-pills .nav-item .nav-link.active, .nav-pills .nav-item .nav-link.active:hover {
+    background-color: $color-m;
+    color: #ffffff;
+}
+.body-comocomprar {
+    .nav-pills .nav-item {
+        margin-bottom: 15px;
+        @include MQ(lg) {
+            margin-bottom: 0;
+        }
+    }
+    .nav-pills .nav-link {
+        color: $color-black;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.375rem;
+        background-color: transparent;
+        border-radius: 0;
+        padding: 0;
+        @include MQ(lg) {
+            font-size: 1.625rem;;
+            margin-right: 25px;
+        }
+    }
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        color: $color-m;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.375rem;
+        background-color: transparent;
+        border-bottom: 2px solid $color-m;
+        padding-bottom: 5px;
+        @include MQ(lg) {
+            font-size: 1.625rem;;
+        }
     }
 }

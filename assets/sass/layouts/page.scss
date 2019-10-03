@@ -1,0 +1,36 @@
+.page {
+    &-content {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        &__main {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        .article {
+            &-header {
+                margin-bottom: 35px;
+                &__titulo {
+                    text-transform: uppercase;
+                    font-weight: 600;
+                }
+            }
+            &-content {
+                margin-bottom: 3rem;
+                h2, .h2 {
+                    font-size: 1.375rem;
+                }
+                h3, .h3 {
+                    font-size: 1.25rem;
+                    margin-top: 3rem;
+                    margin-bottom: 1.5rem;
+                }
+                p {
+                    line-height: 1.9;
+                }
+                ul {
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }
+    }
+}

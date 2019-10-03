@@ -1,40 +1,32 @@
-.main-proyecto {
+.proyecto {
     .hero {
         position: relative;
-        padding-top: 71px;
-        .row {
-            margin-left: -15px;
-            margin-right: -15px;
+        padding-top: 62px;
+        @include MQ(md) {
+            padding-top: 71px;
         }
-        &-col__l {
-            padding: 0;
+        @include MQ(lg) {
+            padding-top: 71px;
+        }
+        &-col {
+            padding-right: 0;
+            padding-left: 0;
+            @include MQ(xl) {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
         }
         &-intro {
-            top: 50%;
-            z-index: 1;
-            right: 0;
-            width: 100%;
             position: relative;
-            background-color: #373f48;
-            @include MQ(md) {
-                position: absolute;
-                top: unset;
-                bottom: 0;
-                left: 0; 
-                width: 400px;   
-            }
-            @include MQ(lg) {
-                position: absolute;
-                right: unset;
-                left: -70px;
-                bottom: 0;
-                top: unset;
-                width: 40%;
-            }
+            background-color: $color-h;
             &__box {
                 width: 100%;
                 text-align: center;
                 @include MQ(lg) {
+                    text-align: right;
+                    padding-right: 30px;
+                }
+                @include MQ(xl) {
                     text-align: right;
                     padding-right: 40px;
                 }
@@ -42,71 +34,89 @@
                     color: #cccccc;
                     font-weight: 500;
                 }
-                &__title {
+                &__titulo {
                     color: #ffffff;
-                    font-size: 1.875rem;
+                    font-size: 1.625rem;
                     font-weight: 600;
                     text-transform: uppercase;
+                    @include MQ(lg) {
+                        font-size: 1.5rem;
+                    }
+                    @include MQ(xl) {
+                        font-size: 1.875rem;
+                    }
                 }
                 &__uf {
                     color: #ffffff;
-                    margin-bottom: 0;
+                    margin-bottom: 10px;
                     font-size: 1.375rem;
                     font-weight: 300;
                     b {
                         font-weight: 500;
                     }
                 }
+                &__comuna {
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    font-size: 1.375rem;
+                    color: #ffffff;
+                    margin-bottom: 0;
+                }
             }
         }
     }
     .postintro {
         &-col {
-            padding: 0;
+            padding-right: 0;
+            padding-left: 0;
+            @include MQ(xl) {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
         }
         &-ubicacion {
             &__map {
                 height: 100px;
-                padding: 35px 20px;
+                padding: 0 20px;
                 background-color: #f5f5f5;
                 text-align: center;
                 color: #373f48;
-                font-size: 1.25rem;
                 font-weight: 400;
                 margin: 0;
-                svg {
-                    margin-right: 5px;
-                    font-size: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &__direccion {
+                    font-size: 1.25rem;
+                    margin: 0;
+                    @include MQ(sm) {
+                        font-size: 1.5rem;
+                    }
+                    @include MQ(md) {
+                        font-size: 1.5rem;
+                    }
+                    @include MQ(lg) {
+                        font-size: 1.125rem;
+                    }
+                    @include MQ(xl) {
+                        font-size: 1.25rem;
+                    }
+                    svg {
+                        margin-right: 5px;
+                        font-size: 25px;
+                    }
                 }
             }
         }
-        &-modelos {
-
-        }
         &-info {
-            @include MQ(md) {
-                padding-bottom: 90px;
-                padding-bottom: 90px;
-            }
         }
     }
     .modelos {
         padding-top: 60px;
         padding-bottom: 50px;
         @include MQ(lg) {
-            padding-bottom: 90px;
+            padding-top: 90px;
             padding-bottom: 60px;
-        }
-        &-title {
-            text-transform: uppercase;
-            font-size: 1.375rem;
-            font-weight: 600;
-            margin-bottom: 35px;
-        }
-        &-subtitle {
-            font-size:1.25rem;
-            font-weight: 500;
-            margin-bottom: 25px;
         }
         &-text {
             font-size: 1.125rem;
@@ -116,11 +126,11 @@
             position: relative;
             &-thumb {
                 overflow: hidden;
-                height: 233px;
             }
             &-detalle {
-                &__title {
+                &__titulo {
                     font-size: 1.5rem;
+                    margin-bottom: 8px;
                 }
                 &__uf {
                     font-size: 1.125rem;
@@ -164,35 +174,37 @@
             }
         }
     }
+    .documentacion {
+        background-color: $color-g;
+        padding-top: 60px;
+        padding-bottom: 50px;
+        @include MQ(lg) {
+            padding-top: 90px;
+            padding-bottom: 60px;
+        }
+    }
     .terminaciones {
         padding-top: 60px;
-        padding-bottom: 60px;
+        padding-bottom: 50px;
+        @include MQ(lg) {
+            padding-top: 90px;
+            padding-bottom: 60px;
+        }
         &-col__l {
             padding: 0;
-            margin-top: -50px;
+            @include MQ(xl) {
+                margin-top: -50px;
+            }
         }
         &-col__r {
             background-color: $color-h;
-            padding-top: 60px; 
-            padding-bottom: 60px; 
+            padding-top: 60px;
+            padding-bottom: 60px;
             text-align: center;
             @include MQ(lg) {
                 padding: 75px 60px;
                 text-align: left;
             }
-        }
-        &-title {
-            color: #ffffff;
-            text-transform: uppercase;
-            font-size: 1.375rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
-        &-subtitle {
-            color: #ffffff;
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-bottom: 35px;
         }
         &-text {
             li {
@@ -214,12 +226,20 @@
             padding: 0;
         }
     }
+    .video {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        @include MQ(lg) {
+            padding-top: 90px;
+            padding-bottom: 90px
+        }
+    }
     .barrio {
         padding-top: 60px;
         padding-bottom: 50px;
         @include MQ(lg) {
-            padding-top: 150px;
-            padding-bottom: 170px;
+            padding-top: 90px;
+            padding-bottom: 60px;
         }
         &-col__l {
             background-color: $color-g;
@@ -227,9 +247,7 @@
             padding-bottom: 60px;
             text-align: center;
             @include MQ(lg) {
-                position: absolute;
-                padding: 90px 60px;
-                padding-right: 150px;
+                padding: 75px 60px;
                 text-align: left;
             }
         }
@@ -239,19 +257,6 @@
             @include MQ(lg) {
                 margin-top: -50px;
             }
-        }
-        &-title {
-            color: #000000;
-            text-transform: uppercase;
-            font-size: 1.375rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
-        &-subtitle {
-            color: #000000;
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-bottom: 35px;
         }
         &-text {
             li {
@@ -270,31 +275,25 @@
         }
         &-col__r {
             background-color: $color-h;
-            padding-top: 60px; 
-            padding-bottom: 60px; 
+            padding-top: 60px;
+            padding-bottom: 60px;
             text-align: center;
             @include MQ(lg) {
                 padding: 75px 60px;
                 text-align: left;
             }
         }
-        &-title {
-            color: #ffffff;
-            text-transform: uppercase;
-            font-size: 1.375rem;
-            font-weight: 600;
-            margin-bottom: 25px;
+        #map {
+            height: 400px;
         }
         &-direccion {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 400;
             color: #ffffff;
-        }
-        &-subtitle {
-            color: #ffffff;
-            font-size: 1.25rem;
-            font-weight: 500;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
+            @include MQ(md) {
+                font-size: 1.25rem;
+            }
         }
         &-text {
             color: #ffffff;
@@ -329,13 +328,7 @@
             @include MQ(md) {
                 padding: 32px;
                 margin-bottom: 0;
-            }   
-        }
-        &-title {
-            text-transform: uppercase;
-            font-size: 1.375rem;
-            font-weight: 600;
-            margin-bottom: 35px;
+            }
         }
         &-ul {
             &__text {
@@ -347,14 +340,11 @@
                     font-weight: 500;
                     color: $color-h;
                     &:hover {
-                        color: $color-black;  
+                        color: $color-black;
                         font-weight: 600;
                     }
                 }
             }
-        }
-        .form-control {
-            border-radius: 0;
         }
     }
 }

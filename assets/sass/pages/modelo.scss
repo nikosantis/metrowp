@@ -1,0 +1,117 @@
+.single-modelo {
+    .navbar {
+        @include MQ(lg) {
+            padding: 0;
+        }
+        @include MQ(xl) {
+            padding: .5rem 1rem;
+        }
+        .navbar-brand {
+            margin: auto;
+            @include MQ(md) {
+                margin: 0;
+                margin-right: 25px;
+            }
+        }
+    }
+    .navbar-titulo {
+        font-size: 1.1875rem;
+        margin-bottom: 0;
+        font-weight: 500;
+        @include MQ(lg) {
+            font-size: 1.5rem;
+        }
+        svg {
+            margin-left: 10px;
+            margin-right: 10px;
+            vertical-align: -1px;
+            font-size: 1.125rem;
+        }
+        a {
+            font-weight: 600;
+            margin-left: 10px;
+        }
+    }
+    &--mobile {
+        background-color: $color-h;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: 100%;
+        text-align: center;
+        &__titulo {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0;
+            svg {
+                margin-left: 10px;
+                margin-right: 10px;
+                vertical-align: -1px;
+            }
+            a {
+                color: #ffffff;
+            }
+        }
+    }
+    &--main {
+        padding-top: 122px;
+        @include MQ(lg) {
+            padding-top: 71px;
+        }
+        @include MQ(xl) {
+            padding-top: 87px;
+        }
+        .post-modelo {
+            padding-top: 0px;
+            padding-bottom: 50px;
+            @include MQ(lg) {
+                padding-top: 30px;
+                padding-bottom: 60px;
+            }
+            @include MQ(xl) {
+                padding-top: 30px;
+                padding-bottom: 60px;
+            }
+            &__header {
+                &__titulo {
+                    text-transform: initial;
+                }
+            }
+            .content {
+                &-titulo {
+                    font-size: 1.5rem;
+                    margin-bottom: 30px;
+                    text-transform: initial;
+                }
+                &-superficie {
+                    font-size: 1.25rem;
+                    margin-bottom: 20px;
+                    font-weight: 500;
+                }
+                &-uf {
+                    font-size: 1.25rem;
+                    margin-bottom: 20px;
+                    font-weight: 500;
+                }
+                &-terreno {
+                    font-size: 1.25rem;
+                    margin-bottom: 20px;
+                    font-weight: 500;
+                }
+                &-descripcion {
+                    font-size: 1rem;
+                    margin-bottom: 20px;
+                }
+            }
+            .formcotizar {
+                &-titulo {
+                    font-size: 1.5rem;
+                    margin-bottom: 30px;
+                    text-transform: initial;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}

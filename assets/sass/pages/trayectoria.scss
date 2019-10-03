@@ -1,0 +1,89 @@
+.trayectoria {
+    .hero {
+        position: relative;
+        &-content {
+            overflow: hidden;
+            &__img {
+                object-fit: cover;
+                height: 950px;
+                @include MQ(md) {
+                    object-fit: cover;
+                    height: 500px;
+                }
+                @include MQ(lg) {
+                    object-fit: cover;
+                    height: 500px;
+                }
+                @include MQ(xl) {
+                    object-fit: cover;
+                    height: 550px;
+                    width: 100%;
+                }
+            }
+        }
+        &-intro {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding-top: 100px;
+            padding-bottom: 0;
+            @include MQ(lg) {
+                padding-top: 100px;
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+.main-trayectoria {
+    .trayectoria-intro {
+        padding-top: 60px;
+        padding-bottom: 15px;
+        @include MQ(lg) {
+            padding-top: 90px;
+            padding-bottom: 60px;
+        }
+        &__titulo {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        &__text {
+            font-size: 1.125rem;
+            margin-bottom: 30px;
+        }
+    }
+    .trayectoria-tab {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-color: $color-g;
+        @include MQ(md) {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+    }
+    .trayectoria-map {
+        padding-top: 60px;
+        padding-bottom: 50px;
+        @include MQ(lg) {
+            padding-top: 90px;
+            padding-bottom: 60px;
+        }
+        &__map {
+            height: 500px;
+            width: 100%;
+            @include MQ(md) {
+                height: 600px;
+            }
+            h2 {
+                margin:0;
+                font-size: 12px;
+            }
+            p {
+            margin:0;
+            font-size: 12px;
+            }
+        }
+    }
+}

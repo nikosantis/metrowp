@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package mgiwp
+ * @package metropwp
  */
 
 ?>
@@ -21,7 +21,3 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
 </head>
-
-<body <?php if ( is_front_page() ) : body_class( 'home' ); else : body_class( 'body-content' ); endif; ?>>
-	<?php include (TEMPLATEPATH . '/global-templates/gtm-body.php'); ?>
-	<?php include (TEMPLATEPATH . '/global-templates/navbar.php'); ?>

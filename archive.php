@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package wawcarwash
+ * @package metropwp
  */
 
 get_header();

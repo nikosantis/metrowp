@@ -1,4 +1,9 @@
-.main-home .carousel-home, .main-proyecto .carousel-proyecto, .main-proyecto .terminaciones-carousel, .main-proyecto  .galeria-carousel, .main-proyecto .barrio-carousel {
+.home .carousel-home,
+.proyecto .carousel-proyecto,
+.proyecto .terminaciones-carousel,
+.proyecto .galeria-carousel,
+.proyecto .barrio-carousel,
+.single-modelo .single-modelo--carousel{
     .owl-nav {
         .owl-prev {
             background-color: rgba($color-m1,.9);
@@ -34,7 +39,7 @@
         }
     }
 }
-.main-home {
+.home {
     .hero {
         &-carousel {
             .carousel-home {
@@ -72,21 +77,35 @@
                 }
             }
         }
+        .carousel-titulo {
+            height: 120px;
+            &__item {
+                &__titulo {
+                    height: 120px;
+                }
+            }
+        }
     }
 }
-.main-proyecto {
+.proyecto {
     .hero {
         &-carousel {
             .carousel-proyecto {
                 height: 350px;
-                @include MQ(lg) {
+                @include MQ(md) {
                     height: 480px;
+                }
+                @include MQ(lg) {
+                    height: 500px;
                 }
                 &__item {
                     &__img {
                         height: 350px;
-                        @include MQ(lg) {
+                        @include MQ(md) {
                             height: 480px;
+                        }
+                        @include MQ(lg) {
+                            height: 500px;
                         }
                     }
                 }
@@ -95,6 +114,10 @@
                     bottom: 0;
                     right: 0;
                     @include MQ(lg) {
+                        bottom: 0;
+                        right: 0;
+                    }
+                    @include MQ(xl) {
                         bottom: 170px;
                         right: -60px;
                     }
@@ -114,10 +137,10 @@
     }
     .terminaciones {
         &-carousel {
-            height: 400px;
+            height: 500px;
             &__item {
                 &__img {
-                    height: 400px;
+                    height: 500px;
                 }
             }
             .owl-nav {
@@ -184,7 +207,7 @@
                 left: 0;
                 @include MQ(lg) {
                     bottom: -60px;
-                    left: 95px;
+                    left: 0;
                 }
                 .owl-prev, .owl-next{
                     width: 60px;
@@ -197,6 +220,53 @@
                     }
                 }
             }
+        }
+    }
+}
+.single-modelo {
+    &--carousel {
+        height: 350px;
+        @include MQ(lg) {
+            height: 480px;
+        }
+        @include MQ(xl) {
+            height: 548px;
+        }
+        &__item {
+            &__img {
+                height: 350px;
+                @include MQ(lg) {
+                    height: 480px;
+                }
+                @include MQ(xl) {
+                    height: 548px;
+                }
+            }
+        }
+        .owl-nav {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            @include MQ(lg) {
+                bottom: 0;
+                right: 0;
+            }
+            .owl-prev, .owl-next{
+                width: 60px;
+                height: 60px;
+                border-radius: 0;
+                margin: 0;
+                .svg-inline--fa {
+                    color: #ffffff;
+                    vertical-align: -3px;
+                }
+            }
+        }
+        .owl-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
         }
     }
 }

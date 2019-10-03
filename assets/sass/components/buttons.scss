@@ -1,5 +1,4 @@
 .btn {
-    line-height: 1;
     padding: .6rem .75rem;
     font-size: 0.875rem;
     line-height: 1.5;
@@ -13,20 +12,21 @@
     text-transform: uppercase;
     &:hover {
         color: #ffffff;
-        background-color: $color-h;
-        border-color: $color-h;
+        background-color: $color-mb;
+        border-color: $color-mb;
     }
 }
-.btn-mgi-2 {
-    color: #ffffff;
+.btn-mgi-xl {
     background-color: $color-m;
-    border-color: $color-m;
+    color: #ffffff;
+    padding: 25px 25px;
     font-weight: 700;
     text-transform: uppercase;
+    border: none;
     &:hover {
         color: #ffffff;
-        background-color: $color-m;
-        border-color: $color-m;
+        background-color: $color-mb;
+        border-color: $color-mb;
     }
 }
 .btn-back {
@@ -54,10 +54,22 @@
     width: 100%;
     font-size: 1.25rem;
     height: 100px;
+    @include MQ(md) {
+        padding: 33px 10px;
+        font-size: 1.5rem;
+    }
+    @include MQ(lg) {
+        padding: 40px 0px;
+        font-size: 1rem;
+    }
+    @include MQ(xl) {
+        padding: 35px 0px;
+        font-size: 1.125rem;
+    }
     &:hover {
         color: #ffffff;
-        background-color: $color-h;
-        border-color: $color-h;
+        background-color: $color-mb;
+        border-color: $color-mb;
     }
 }
 .btn-info {
@@ -74,10 +86,16 @@
     height: 100px;
     line-height: 1.4;
     @include MQ(md) {
-        padding: 26px 10px;
+        padding: 18px 10px;
+        font-size: 1.5rem;
     }
     @include MQ(lg) {
+        padding: 18px 10px;
+        font-size: 1rem;
+    }
+    @include MQ(xl) {
         padding: 12px 10px;
+        font-size: 1.125rem;
     }
     &:hover {
         color: #ffffff;
@@ -86,5 +104,5 @@
     }
 }
 .btn-info:hover {
-    color: #ffffff;    
+    color: #ffffff;
 }

@@ -1,15 +1,24 @@
-@import 'utils/media';
-@import 'utils/variables';
+@import 'utils/_media';
+@import 'utils/_variables';
+
 @import 'base/base.scss';
 
 @import 'components/buttons.scss';
 @import 'components/carousel.scss';
 @import 'components/breadcrumb.scss';
 @import 'components/tabs.scss';
+@import 'components/forms.scss';
+@import 'components/modal.scss';
 
 @import 'layouts/header.scss';
 @import 'layouts/footer.scss';
+@import 'layouts/content.scss';
+@import 'layouts/page.scss';
+@import 'layouts/sidebar.scss';
 
 @import 'pages/home.scss';
 @import 'pages/proyecto.scss';
+@import 'pages/modelo.scss';
+@import 'pages/proyectos.scss';
+@import 'pages/trayectoria.scss';
 @import 'pages/como-comprar.scss';

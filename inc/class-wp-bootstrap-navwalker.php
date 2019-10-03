@@ -1,6 +1,6 @@
 <?php
 
-class wawcarwash_walker_nav_menu extends Walker_Nav_menu {
+class metropwp_walker_nav_menu extends Walker_Nav_menu {
 
 	function start_lvl( &$output, $depth = 0, $args = array() ){ // ul
 		$indent = str_repeat("\t",$depth); // indents the outputted HTML
@@ -56,4 +56,4 @@ class wawcarwash_walker_nav_menu extends Walker_Nav_menu {
 Register Navbar
 */
 
-register_nav_menu('navbar', __('Navbar', 'wawcarwash'));
+register_nav_menu('navbar', __('Navbar', 'metropwp'));
