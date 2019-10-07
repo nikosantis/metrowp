@@ -1,16 +1,16 @@
 .home {
     .hero {
         position: relative;
-        padding-top: 46px;
+        padding-top: 71px;
         overflow: hidden;
         @include MQ(lg) {
-            padding-top: 82px;
+            padding-top: 92px;
         }
         .row {
             margin-left: -15px;
             margin-right: -15px;
         }
-        &-titulo {
+        h3 {
             padding-left: 0;
             padding-top: 30px;
             font-size: 1.625rem;
@@ -23,7 +23,7 @@
                 text-align: left;
             }
         }
-        &-subtitulo {
+        h1 {
             padding-left: 0;
             font-size: 1.375rem;
             font-weight: 500;

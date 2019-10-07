@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Cómo Comprar
+Template Name: Contenido Cómo Comprar
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -13,7 +13,11 @@ Template Name: Cómo Comprar
 */
 ?>
 <?php get_header();?>
-<body <?php body_class( 'page page-principal comocomprar' ); ?>>
+<?php
+    $current = $post->ID;
+    $parent = $post->post_parent;
+?>
+<body <?php body_class( 'page page-principal' ); ?>>
 	<?php include (TEMPLATEPATH . '/global-templates/gtm-body.php'); ?>
     <?php include (TEMPLATEPATH . '/global-templates/navbar-principal.php'); ?>
     <section class="hero bg-cover" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
@@ -32,9 +36,15 @@ Template Name: Cómo Comprar
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                    <a itemtype="https://schema.org/Thing" itemprop="item" href="<?php the_permalink($parent); ?>">
+                                        <span itemprop="name"><?php echo get_the_title($parent); ?></span>
+                                        <meta itemprop="position" content="2">
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                                     <a itemtype="https://schema.org/Thing" itemprop="item" href="<?php the_permalink(); ?>" class="active">
                                         <span itemprop="name"><?php the_title();?></span>
-                                        <meta itemprop="position" content="2">
+                                        <meta itemprop="position" content="3">
                                     </a>
                                 </li>
                             </ol>
@@ -44,44 +54,21 @@ Template Name: Cómo Comprar
             </div>
         </div>
     </section>
-    <main class="main main-comocomprar" role="main">
-        <section class="comocomprar-intro">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 col-12 text-center">
-                        <h2 class="comocomprar-intro__titulo"><?php the_field( 'sub_titulo_como_comprar' ); ?></h2>
-                        <p class="comocomprar-intro__text"><?php the_field( 'texto_como_comprar' ); ?></p>
-                    </div>
+    <section class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 col-12">
+                    <main class="main page-content__main" role="main">
+                        <?php if(have_posts()): while(have_posts()): the_post(); ?>
+                            <?php get_template_part( 'template-parts/content', 'page-principal' ); ?>
+                        <?php endwhile; endif; ?>
+                    </main>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-12 text-center">
-                        <img src="<?php the_field( 'imagen_como_comprar' ); ?>" alt="<?php the_title();?>" class="img-fluid mb-5">
-                    </div>
+                <div class="col-xl-3 col-12">
+                    <?php get_sidebar(); ?>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-12 text-center">
-                        <p class="comocomprar-intro__text"><?php the_field( 'texto_para_enlaces_subsidio' ); ?>:</p>
-                    </div>
-                </div>
-                <?php if( have_rows('botones_subsidio') ): ?>
-                <div class="row justify-content-center">
-                    <?php while( have_rows('botones_subsidio') ): the_row();
-
-                    $url = get_sub_field('enlace_boton');
-                    $titulo = get_sub_field('texto_boton');
-                    ?>
-                    <div class="col-3 text-center">
-                        <a href="<?php echo $url; ?>" class="comocomprar-link" title="<?php echo $titulo; ?>">
-                            <div class="comocomprar-box bg-m d-flex justify-content-center align-items-center">
-                                <h3 class="comocomprar-box__titulo"><?php echo $titulo; ?></h3>
-                            </div>
-                        </a>
-                    </div>
-                    <?php endwhile; ?>
-                </div>
-                <?php endif; ?>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 <?php
 get_footer();

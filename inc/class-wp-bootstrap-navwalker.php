@@ -56,4 +56,7 @@ class metropwp_walker_nav_menu extends Walker_Nav_menu {
 Register Navbar
 */
 
-register_nav_menu('navbar', __('Navbar', 'metropwp'));
+register_nav_menu('navbar-home', __('Navbar Home', 'metropwp'));
+register_nav_menu('navbar-principal', __('Navbar Principal', 'metropwp'));
+register_nav_menu('navbar-proyectos', __('Navbar Proyectos', 'metropwp'));
+register_nav_menu('navbar-modelos', __('Navbar Modelos', 'metropwp'));

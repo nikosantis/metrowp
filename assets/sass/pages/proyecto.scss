@@ -1,12 +1,12 @@
 .proyecto {
     .hero {
         position: relative;
-        padding-top: 62px;
+        padding-top: 71px;
         @include MQ(md) {
-            padding-top: 71px;
+            padding-top: 74px;
         }
         @include MQ(lg) {
-            padding-top: 71px;
+            padding-top: 80px;
         }
         &-col {
             padding-right: 0;
@@ -43,7 +43,7 @@
                         font-size: 1.5rem;
                     }
                     @include MQ(xl) {
-                        font-size: 1.875rem;
+                        font-size: 1.75rem;
                     }
                 }
                 &__uf {
@@ -118,11 +118,22 @@
             padding-top: 90px;
             padding-bottom: 60px;
         }
-        &-text {
+        h2 {
+            text-transform: uppercase;
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 35px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 45px;
+        }
+        p {
             font-size: 1.125rem;
             margin-bottom: 45px;
         }
-        .planta {
+        .modelo {
             position: relative;
             &-thumb {
                 overflow: hidden;
@@ -161,14 +172,14 @@
                 padding: 10px 15px;
                 font-weight: 500;
             }
-            &.planta-agotada {
-                .planta-thumb {
+            &.modelo-agotado {
+                .modelo-thumb {
                     opacity: .8;
                 }
-                .planta-detalle {
+                .modelo-detalle {
                     opacity: .8;
                 }
-                .planta-entrega {
+                .modelo-entrega {
                     background-color: $color-h;
                 }
             }
@@ -207,11 +218,15 @@
             }
         }
         &-text {
-            li {
-                color: #ffffff;
-                font-size: 1rem;
-                margin-bottom: 5px;
-                font-weight: 300;
+            ul {
+                padding-left: 0;
+                list-style: none;
+                li {
+                    color: #ffffff;
+                    font-size: 1rem;
+                    margin-bottom: 5px;
+                    font-weight: 300;
+                }
             }
         }
     }
@@ -259,11 +274,15 @@
             }
         }
         &-text {
-            li {
-                color: #000000;
-                font-size: 0.9375rem;
-                margin-bottom: 5px;
-                font-weight: 300;
+            ul {
+                padding-left: 0;
+                list-style: none;
+                li {
+                    color: #000000;
+                    font-size: 0.9375rem;
+                    margin-bottom: 5px;
+                    font-weight: 300;
+                }
             }
         }
     }
@@ -296,10 +315,12 @@
             }
         }
         &-text {
-            color: #ffffff;
-            font-size: 0.9375rem;
-            margin-bottom: 5px;
-            font-weight: 300;
+            p {
+                color: #ffffff;
+                font-size: 0.9375rem;
+                margin-bottom: 5px;
+                font-weight: 300;
+            }
         }
     }
     .subsidio {

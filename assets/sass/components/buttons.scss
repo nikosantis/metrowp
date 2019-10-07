@@ -10,7 +10,7 @@
     border-color: $color-m;
     font-weight: 700;
     text-transform: uppercase;
-    &:hover {
+    .btn-mgi:hover, .btn-mgi:focus, .btn-mgi.focus {
         color: #ffffff;
         background-color: $color-mb;
         border-color: $color-mb;
@@ -23,7 +23,7 @@
     font-weight: 700;
     text-transform: uppercase;
     border: none;
-    &:hover {
+    .btn-mgi-xl:hover, .btn-mgi-xl:focus, .btn-mgi-xl.focus {
         color: #ffffff;
         background-color: $color-mb;
         border-color: $color-mb;
@@ -36,7 +36,7 @@
     font-weight: 700;
     text-transform: uppercase;
     border: none;
-    &:hover {
+    .btn-back:hover, .btn-back:focus, .btn-back.focus {
         color: #ffffff;
         background-color: $color-m;
         border-color: $color-m;
@@ -66,7 +66,7 @@
         padding: 35px 0px;
         font-size: 1.125rem;
     }
-    &:hover {
+    .btn-cot:hover, .btn-cot:focus, .btn-cot.focus {
         color: #ffffff;
         background-color: $color-mb;
         border-color: $color-mb;
@@ -97,12 +97,12 @@
         padding: 12px 10px;
         font-size: 1.125rem;
     }
-    &:hover {
+    .btn-info:hover, .btn-info:focus, .btn-info.focus {
         color: #ffffff;
         background-color: $color-m;
         border-color: $color-m;
     }
 }
-.btn-info:hover {
+.btn-info:hover, .btn-info:focus, .btn-info.focus {
     color: #ffffff;
 }

@@ -43,10 +43,10 @@
     .hero {
         &-carousel {
             .carousel-home {
-                height: 450px;
+                height: 500px;
                 &__item {
                     &__img {
-                        height: 450px;
+                        height: 500px;
                     }
                     &__text {
                         margin-bottom: 0;
@@ -230,7 +230,7 @@
             height: 480px;
         }
         @include MQ(xl) {
-            height: 548px;
+            height: 564px;
         }
         &__item {
             &__img {
@@ -239,7 +239,7 @@
                     height: 480px;
                 }
                 @include MQ(xl) {
-                    height: 548px;
+                    height: 564px;
                 }
             }
         }

@@ -29,7 +29,7 @@
                         </li>
                     </ul>
                 </div>
-                <a href="javascript:history.back()" class="btn btn-back d-none d-xl-inline-block mb-3 mb-md-0 ml-md-3"><i class="fas fa-chevron-left"></i> Volver</a>
+                <a href="<?php echo esc_url( home_url('/') ); ?>" class="btn btn-back d-none d-xl-inline-block mb-3 mb-md-0 ml-md-3"><i class="fas fa-chevron-left"></i> Volver</a>
             </div>
         </nav>
         <div class="header-proyecto__nombre sps sps--abv" data-sps-offset="480">

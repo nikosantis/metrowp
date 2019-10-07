@@ -21,6 +21,9 @@
                 }
             }
             .navbar-nav {
+                .nav-item {
+                    margin-bottom: 0;
+                }
                 .nav-link {
                     text-transform: uppercase;
                     font-family: 'Poppins', sans-serif;
@@ -132,6 +135,9 @@
         &-light {
             background-color: #ffffff !important;
             .navbar-nav {
+                .nav-item {
+                    margin-bottom: 0;
+                }
                 .nav-link {
                     text-transform: uppercase;
                     font-family: 'Poppins', sans-serif;

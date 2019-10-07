@@ -8,8 +8,8 @@
  *
  * @package metropwp
  */
-
 ?>
+
     <footer class="footer">
         <section class="footer-top">
             <div class="container">
@@ -31,18 +31,18 @@
                             <li class="pl-2 mb-3 d-flex">
                                 <i class="fas fa-phone fa-lg"></i>
                                 <div class="ml-3">
-                                <?php
-                                    if( have_rows('telefono') ):
-                                    $i=0;
-                                ?>
+                                <?php if( have_rows('telefono_principal', 'option') ) : $i = 0;?>
                                     <span class="ul-brand__text">
-                                    <?php
-                                        while( have_rows('telefono') ): the_row();
+                                    <?php while( have_rows('telefono_principal', 'option') ) : the_row();
+                                        $phone = get_sub_field('telefono_contacto');
                                         $i++;
-                                        $telefono = get_sub_field('telefono_contacto');
-                                    ?>
-                                        <a href="tel:<?php echo $telefono; ?>"><?php echo $telefono; ?></a><?php if ($i>0) { _e( ' | ', 'metropwp' ); } ?>
-                                        <?php endwhile; ?>
+                                        ?>
+                                        <?php if($i > 1) { ?>
+                                            <?php if($i > 1) { echo ' | '; } ?><a href="tel:<?php echo esc_html( $phone ); ?>"><?php echo esc_html( $phone ); ?></a>
+                                        <?php } else { ?>
+                                            <a href="tel:<?php echo esc_html( $phone ); ?>"><?php echo esc_html( $phone ); ?></a>
+                                        <?php }; ?>
+                                    <?php endwhile; ?>
                                     </span>
                                 <?php endif; ?>
                                 </div>
@@ -56,7 +56,16 @@
                             <li class="pl-2 mb-3 d-flex">
                                 <i class="fas fa-map-marker-alt fa-lg"></i>
                                 <div class="ml-3">
-                                    <span class="ul-brand__text ml-1"><a href="<?php the_field('url_de_google_maps', 'option'); ?>"><?php the_field('direccion', 'option'); ?></a></span>
+                                    <?php if( have_rows('direccion_principal', 'option') ) : ?>
+                                        <span class="ul-brand__text ml-1">
+                                        <?php while( have_rows('direccion_principal', 'option') ) : the_row();
+                                            $urlmap = get_sub_field('url_de_google_maps');
+                                            $dirmap = get_sub_field('direccion');
+                                        ?>
+                                            <a href="<?php echo $urlmap; ?>" target="_blank"><?php echo $dirmap; ?></a>
+                                        <?php endwhile; ?>
+                                        </span>
+                                    <?php endif; ?>
                                 </div>
                             </li>
                             <li class="pl-2 mb-3 d-flex">
@@ -70,30 +79,43 @@
                     <div class="col-lg-7">
                         <div class="row justify-content-center">
                             <div class="col-md-4 col-12 pt-3">
-                                <h5 class="footer-center__titulo">Ayuda al Cliente</h5>
+                                <h5 class="footer-center__titulo"><?php the_field('titulo_footer_1', 'option'); ?></h5>
+                                <?php if( have_rows('menu_footer_1', 'option') ) :?>
                                 <ul class="footer-center__nav list-unstyled">
-                                    <li><a href="#">¿Cómo comprar?</a></li>
-                                    <li><a href="#">Subsidios</a></li>
-                                    <li><a href="#">Postventa</a></li>
-                                    <li><a href="#">Contacto</a></li>
+                                    <?php while( have_rows('menu_footer_1', 'option') ) : the_row();
+                                        $url = get_sub_field('enlace_menu');
+                                        $texto = get_sub_field('texto_menu');
+                                    ?>
+                                    <li><a href="<?php echo $url; ?>" title="<?php echo $texto; ?>"><?php echo $texto; ?></a></li>
+                                    <?php endwhile; ?>
                                 </ul>
+                                <?php endif; ?>
                             </div>
                             <div class="col-md-4 col-12 pt-3">
-                                <h5 class="footer-center__titulo">Inmobiliaria</h5>
+                                <h5 class="footer-center__titulo"><?php the_field('titulo_footer_2', 'option'); ?></h5>
+                                <?php if( have_rows('menu_footer_2', 'option') ) :?>
                                 <ul class="footer-center__nav list-unstyled">
-                                    <li><a href="#">Inicio</a></li>
-                                    <li><a href="#">Proyectos</a></li>
-                                    <li><a href="#">Trayectoria</a></li>
+                                    <?php while( have_rows('menu_footer_2', 'option') ) : the_row();
+                                        $url = get_sub_field('enlace_menu');
+                                        $texto = get_sub_field('texto_menu');
+                                    ?>
+                                    <li><a href="<?php echo $url; ?>" title="<?php echo $texto; ?>"><?php echo $texto; ?></a></li>
+                                    <?php endwhile; ?>
                                 </ul>
+                                <?php endif; ?>
                             </div>
                             <div class="col-md-4 col-12 pt-3">
-                                <h5 class="footer-center__titulo">Comunas</h5>
+                                <h5 class="footer-center__titulo"><?php the_field('titulo_footer_3', 'option'); ?></h5>
+                                <?php if( have_rows('menu_footer_3', 'option') ) :?>
                                 <ul class="footer-center__nav list-unstyled">
-                                    <li><a href="#">Buin</a></li>
-                                    <li><a href="#">Colina</a></li>
-                                    <li><a href="#">Padre Hurtado</a></li>
-                                    <li><a href="#">Peñaflor</a></li>
+                                    <?php while( have_rows('menu_footer_3', 'option') ) : the_row();
+                                        $url = get_sub_field('enlace_menu');
+                                        $texto = get_sub_field('texto_menu');
+                                    ?>
+                                    <li><a href="<?php echo $url; ?>" title="<?php echo $texto; ?>"><?php echo $texto; ?></a></li>
+                                    <?php endwhile; ?>
                                 </ul>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
