@@ -20,7 +20,7 @@
 	<?php include (TEMPLATEPATH . '/global-templates/gtm-body.php'); ?>
     <?php include (TEMPLATEPATH . '/global-templates/navbar-modelos.php'); ?>
     <main class="main single-modelo--main" role="main">
-    <article class="post-modelo">
+        <article class="post-modelo">
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-7 col-12 px-0" data-aos="fade-right" data-aos-delay="100">
@@ -50,7 +50,7 @@
                         <section class="formcotizar py-5 px-lg-5 px-xl-0">
                             <?php if( get_field('estado_de_modelo') === 'activo'): ?>
                             <h2 class="formcotizar-titulo">Cotizar Modelo</h2>
-                            <?php echo do_shortcode( '[contact-form-7 id="135" title="Formulario Cotización Modelo"]' ); ?>
+                            <?php echo do_shortcode( '[contact-form-7 id="135" title="Formulario Cotización Modelo" html_id="metrowpForm"]' ); ?>
                             <?php else: ?>
                             <h2 class="formcotizar-titulo">Modelo Agotado</h2>
                             <?php endif; ?>
@@ -99,3 +99,11 @@
     </main>
 <?php
 get_footer();
+?>
+
+<script>
+    const nombreProyecto = '<?php echo $vincular->post_title; ?>';
+    const nombrePlanta = '<?php the_title();?>';
+    jQuery('input[name="nombreProyecto"]').val(nombreProyecto);
+    jQuery('input[name="nombrePlanta"]').val(nombrePlanta);
+</script>

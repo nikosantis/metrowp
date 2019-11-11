@@ -97,12 +97,73 @@ Template Name: Casas
                             <p class="proyecto-detalle__ds"><?php the_field('tipo_subsidio'); ?></p>
                             <a href="<?php the_permalink(); ?>" class="btn btn-mgi">Cotizar</a>
                         </section>
+                        <?php if(get_field('etiqueta_informativa')): ?>
                         <div class="proyecto-entrega"><?php the_field('etiqueta_informativa'); ?></div>
+                        <?php endif; ?>
                     </article>
                 </div>
                 <?php endwhile; ?>
             </div>
             <?php endif; wp_reset_postdata();?>
+        </div>
+    </section>
+    <section class="metro-seo">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-lg-2 col-md-2 col-12 metro-seo--titulo">
+                    <p><b>Proyectos:</b></p>
+                </div>
+                <div class="col-lg-10 col-md-10 col-12 metro-seo--list">
+                <?php
+                    $args_queryproyectos_seo = array(
+                        'post_type'    => 'proyectos',
+                        'posts_per_page'    => -1,
+                        'post_status'       => 'publish',
+                        'meta_key'			=> 'estado_del_proyecto',
+                        'orderby'			=> 'meta_value',
+                        'order'				=> 'DESC'
+                    );
+                    // The Query
+                    $queryproyectos_seo = new WP_Query( $args_queryproyectos_seo );
+                ?>
+                <?php if ( $queryproyectos_seo->have_posts() ) : $i = 0;?>
+                    <ul class="list-inline">
+                    <?php while ( $queryproyectos_seo->have_posts() ) : $queryproyectos_seo->the_post();
+                    $i++;?>
+                        <li class="list-inline-item"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+                    <?php endwhile; wp_reset_postdata();?>
+                    </ul>
+                <?php endif;?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-12 metro-seo--titulo">
+                    <p><b>Comunas:</b></p>
+                </div>
+                <div class="col-lg-10 col-md-10 col-12 metro-seo--list">
+                <?php
+                    $args_querycomunas_seo = array(
+                        'post_type' => 'page', //it is a Page right?
+                        'post_status' => 'publish',
+                        'meta_query' => array(
+                            array(
+                                'key' => '_wp_page_template',
+                                'value' => 'page-templates/page-comuna-seo.php', // folder + template name as stored in the dB
+                            )
+                        )
+                    );
+                    $querycomunas_seo = new WP_Query( $args_querycomunas_seo );
+                ?>
+                <?php if ( $querycomunas_seo->have_posts() ) : $i = 0;?>
+                    <ul class="list-inline">
+                    <?php while ( $querycomunas_seo->have_posts() ) : $querycomunas_seo->the_post();
+                    $i++;?>
+                        <li class="list-inline-item"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+                    <?php endwhile; wp_reset_postdata();?>
+                    </ul>
+                <?php endif;?>
+                </div>
+            </div>
         </div>
     </section>
 <?php

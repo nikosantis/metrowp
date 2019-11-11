@@ -1,11 +1,6 @@
 .home {
     .hero {
         position: relative;
-        padding-top: 71px;
-        overflow: hidden;
-        @include MQ(lg) {
-            padding-top: 92px;
-        }
         .row {
             margin-left: -15px;
             margin-right: -15px;
@@ -70,8 +65,7 @@
                     height: 650px;
                 }
                 @include MQ(xl) {
-                    object-fit: fill;
-                    height: 700px;
+                    width: 100%;
                 }
             }
         }

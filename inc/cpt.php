@@ -47,7 +47,7 @@ function create_proyecto_cpt() {
 		'can_export' => true,
 		'has_archive' => false,
 		'hierarchical' => true,
-		'exclude_from_search' => false,
+		'exclude_from_search' => true,
 		'show_in_rest' => true,
 		'publicly_queryable' => true,
 		'capability_type' => 'post',
@@ -57,6 +57,41 @@ function create_proyecto_cpt() {
 
 }
 add_action( 'init', 'create_proyecto_cpt', 0 );
+// Register Taxonomy Comuna
+function create_comuna_tax() {
+
+	$labels = array(
+		'name'              => _x( 'Comunas', 'taxonomy general name', 'metrowp' ),
+		'singular_name'     => _x( 'Comuna', 'taxonomy singular name', 'metrowp' ),
+		'search_items'      => __( 'Buscar Comuna', 'metrowp' ),
+		'all_items'         => __( 'Todas las Comunas', 'metrowp' ),
+		'parent_item'       => __( 'Comuna Padre', 'metrowp' ),
+		'parent_item_colon' => __( 'Comuna Padre:', 'metrowp' ),
+		'edit_item'         => __( 'Editar Comuna', 'metrowp' ),
+		'update_item'       => __( 'Actualizar Comuna', 'metrowp' ),
+		'add_new_item'      => __( 'Añadir Nueva Comuna', 'metrowp' ),
+		'new_item_name'     => __( 'Nombre Nueva Comuna', 'metrowp' ),
+		'menu_name'         => __( 'Comuna', 'metrowp' ),
+	);
+	$args = array(
+		'labels' => $labels,
+		'description' => __( 'Comuna de cada proyecto', 'metrowp' ),
+		'hierarchical' => true,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'show_in_nav_menus' => true,
+		'show_tagcloud' => true,
+		'show_in_quick_edit' => true,
+		'show_admin_column' => true,
+		'show_in_rest' => true,
+		'rewrite' => false,
+	);
+	register_taxonomy( 'comuna', array('proyectos'), $args );
+
+}
+add_action( 'init', 'create_comuna_tax' );
 // Register Custom Post Type Modelo
 function create_modelo_cpt() {
 
@@ -103,7 +138,7 @@ function create_modelo_cpt() {
 		'show_in_admin_bar' => true,
 		'show_in_nav_menus' => true,
 		'can_export' => true,
-		'has_archive' => true,
+		'has_archive' => false,
 		'hierarchical' => true,
 		'exclude_from_search' => false,
 		'show_in_rest' => true,

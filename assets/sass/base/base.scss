@@ -17,7 +17,7 @@ a {
     -ms-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s;
-    color: rgba(0,0,0,1);
+    color: $color-black;
 }
 a:focus,
 a:hover {
@@ -29,8 +29,15 @@ a:hover {
     transition: all .3s;
     color: $color-m;
 }
-button:focus {
+button:focus, button:focus-within, button.focus {
     outline:none;
+    text-decoration: none;
+    box-shadow: none;
+}
+.btn:focus, .btn:focus-within, .btn.focus {
+    outline:none;
+    text-decoration: none;
+    box-shadow: none;
 }
 p {
     font-family: 'Roboto', sans-serif;

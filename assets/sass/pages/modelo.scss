@@ -58,15 +58,24 @@
                 color: #ffffff;
             }
         }
+        &.sticky {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: -36px;
+            -webkit-transform: translateY(100px);
+            -ms-transform: translateY(100px);
+            transform: translateY(100px);
+            z-index: 1030;
+            border-top: 0;
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            -ms-transition: all .5s;
+            -o-transition: all .5s;
+            transition: all .5s;
+        }
     }
     &--main {
-        padding-top: 122px;
-        @include MQ(lg) {
-            padding-top: 71px;
-        }
-        @include MQ(xl) {
-            padding-top: 87px;
-        }
         .post-modelo {
             padding-top: 0px;
             padding-bottom: 50px;
@@ -86,7 +95,7 @@
             .content {
                 &-titulo {
                     font-size: 1.5rem;
-                    margin-bottom: 30px;
+                    margin-bottom: 50px;
                     text-transform: initial;
                 }
                 &-superficie {
@@ -97,7 +106,6 @@
                 &-uf {
                     font-size: 1.25rem;
                     margin-bottom: 20px;
-                    font-weight: 500;
                 }
                 &-terreno {
                     font-size: 1.25rem;

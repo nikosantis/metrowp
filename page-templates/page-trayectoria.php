@@ -22,7 +22,7 @@ Template Name: Trayectoria
     <?php include (TEMPLATEPATH . '/global-templates/navbar-principal.php'); ?>
     <section class="hero">
         <div class="hero-content">
-            <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="img-fluid hero-content__img trayectoria-parallax">
+            <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title();?>" class="img-fluid hero-content__img trayectoria-parallax">
             <div class="image-overlay"></div>
         </div>
         <div class="hero-intro d-flex align-items-center">
@@ -73,7 +73,7 @@ Template Name: Trayectoria
         <section class="trayectoria-intro">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xl-9 col-12 text-center">
+                    <div class="col-xl-10 col-12 text-center">
                         <h2 class="trayectoria-intro__titulo"><?php the_field('titulo_secundario'); ?></h2>
                         <?php the_field('texto_introduccion'); ?>
                     </div>
@@ -104,7 +104,7 @@ Template Name: Trayectoria
                         ?>
                             <div class="tab-pane fade <?php if( $i < 2 ): ?>show active<?php endif; ?>" id="nav-<?php echo $i; ?>" role="tabpanel" aria-labelledby="nav-<?php echo $i; ?>-tab">
                                 <div class="row justify-content-center">
-                                    <div class="col-xl-9 col-12 text-center">
+                                    <div class="col-xl-11 col-12 text-center">
                                     <?php echo $conttab; ?>
                                     </div>
                                 </div>
@@ -119,106 +119,76 @@ Template Name: Trayectoria
         <section class="trayectoria-map">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xl-9 col-12 text-center">
+                    <div class="col-12 text-center">
                         <h2 class="titulo"><?php the_field('titulo_de_mapa_de_trayectoria'); ?></h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="trayectoria-map__map" id="map"></div>
-                        <script>
-                            var map;
-                            var InforObj = [];
-                            <?php if( have_rows('mapa_centrado') ):?>
-                            <?php while( have_rows('mapa_centrado') ): the_row();
-                                $latmapcen = get_sub_field('latitud');
-                                $lngmapcen = get_sub_field('longitud');
+                        <div class="trayectoria-map__map">
+                            <img src="<?php the_field('imagen_mapa_trayectoria'); ?>" alt="<?php the_field('titulo_de_mapa_de_trayectoria'); ?>" usemap="#image-map" class="img-fluid">
+                            <?php if( have_rows('vinculos_en_el_mapa') ): ?>
+                            <?php while( have_rows('vinculos_en_el_mapa') ): the_row();
+                                $url = get_sub_field('url_mapa');
+                                $titulo = get_sub_field('titulo_mapa');
+                                $coor = get_sub_field('coordenadas_mapa');
                             ?>
-                            var centerCords = {
-                                lat: <?php echo $latmapcen; ?>,
-                                lng: <?php echo $lngmapcen; ?>
-                            };
+                            <a href="<?php echo $url; ?>" title="<?php echo $titulo; ?>" style="<?php echo $coor; ?>"></a>
                             <?php endwhile; ?>
                             <?php endif; ?>
-                            <?php if( have_rows('datos_de_proyectos_por_comuna') ):?>
-                            <?php
-                                $rowCount = count( get_field('datos_de_proyectos_por_comuna') );
-                                $i = 0;
-                            ?>
-                            var markersOnMap = [
-                                <?php while( have_rows('datos_de_proyectos_por_comuna') ): the_row();
-                                    $latcom = get_sub_field('latitud_de_comuna');
-                                    $lngcom = get_sub_field('longitud_de_comuna');
-                                    $nombrecom = get_sub_field('nombre_de_la_comuna');
-                                    $textocom = get_sub_field('texto_informativo_de_comuna');
-                                ?>
-                                {
-                                    placeName: "<?php echo $nombrecom; ?>",
-                                    placeText: "<?php echo $textocom; ?>",
-                                    LatLng: [{
-                                        lat: <?php echo $latcom; ?>,
-                                        lng: <?php echo $lngcom; ?>
-                                    }]
-                                }<?php if($i < $rowCount): ?>,<?php else: ?><?php endif; ?>
-                                <?php endwhile; ?>
-                            ];
-                            <?php endif; ?>
-
-                            window.onload = function () {
-                                initMap();
-                            };
-
-                            function addMarkerInfo() {
-                                for (var i = 0; i < markersOnMap.length; i++) {
-                                    var contentString = '<div id="content"><h2>' + markersOnMap[i].placeName +
-                                        '</h2><p>' + markersOnMap[i].placeText + '</p></div>';
-                                    var image = '';
-                                    const marker = new google.maps.Marker({
-                                        position: markersOnMap[i].LatLng[0],
-                                        map: map,
-                                        icon: {
-                                            path: google.maps.SymbolPath.CIRCLE,
-                                            scale: 0
-                                        }
-                                    });
-
-                                    const infowindow = new google.maps.InfoWindow({
-                                        content: contentString,
-                                        maxWidth: 200
-                                    });
-
-                                    marker.addListener('click', function () {
-                                        closeOtherInfo();
-                                        infowindow.open(marker.get('map'), marker);
-                                        InforObj[0] = infowindow;
-                                    });
-                                    infowindow.open(map, marker);
-                                }
-                            }
-
-                            function closeOtherInfo() {
-                                if (InforObj.length > 0) {
-                                    /* detach the info-window from the marker ... undocumented in the API docs */
-                                    InforObj[0].set("marker", null);
-                                    /* and close it */
-                                    InforObj[0].close();
-                                    /* blank the array */
-                                    InforObj.length = 0;
-                                }
-                            }
-                            function initMap() {
-                                map = new google.maps.Map(document.getElementById('map'), {
-                                    zoom: 10,
-                                    center: centerCords,
-                                    streetViewControl: false,
-                                    mapTypeId: 'satellite'
-                                });
-                                addMarkerInfo();
-                            }
-                        </script>
-                        <script src="https://maps.googleapis.com/maps/api/js?key=<?php the_field('api_google_maps', 'options'); ?>"></script>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section class="proyectos-grid">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-10 col-md-12 col-12 text-center">
+                        <h2 class="titulo">Proyectos en Venta</h2>
+                    </div>
+                </div>
+                <?php
+                    $args_queryproyectos = array(
+                        'post_type'    => 'proyectos',
+                        'posts_per_page'    => -1,
+                        'post_status'       => 'publish',
+                        'meta_key'			=> 'estado_del_proyecto',
+                        'orderby'			=> 'meta_value',
+                        'order'				=> 'DESC'
+                    );
+                    // The Query
+                    $queryproyectos = new WP_Query( $args_queryproyectos );
+                ?>
+                <?php if ( $queryproyectos->have_posts() ) : $i = 0;?>
+                <div class="row justify-content-center pt-5">
+                    <?php while ( $queryproyectos->have_posts() ) : $queryproyectos->the_post(); $i++; ?>
+                    <div class="col-lg-4 col-md-6 col-12 mb-5" data-aos="fade-right" data-aos-delay="<?php echo $i; ?>00">
+                        <article class="proyecto">
+                            <header class="proyecto-thumb mb-3">
+                                <a href="<?php the_permalink(); ?>">
+                                    <img src="<?php the_post_thumbnail_url('proyecto_thumb'); ?>" alt="<?php the_title(); ?>" class="img-fluid imghover">
+                                </a>
+                            </header>
+                            <section class="proyecto-detalle">
+                                <a href="<?php the_permalink(); ?>">
+                                    <h4 class="proyecto-detalle__titulo"><?php the_title(); ?></h4>
+                                </a>
+                                <div class="proyecto-detalle__info">
+                                    <span class="proyecto-detalle__info__comuna"><?php the_field('comuna'); ?></span>
+                                    <span class="proyecto-detalle__info__uf"><?php the_field('precio_desde_uf'); ?></span>
+                                </div>
+                                <p class="proyecto-detalle__ds"><?php the_field('tipo_subsidio'); ?></p>
+                                <a href="<?php the_permalink(); ?>" class="btn btn-mgi">Ver Proyecto</a>
+                            </section>
+                            <?php if(get_field('etiqueta_informativa')): ?>
+                            <div class="proyecto-entrega"><?php the_field('etiqueta_informativa'); ?></div>
+                            <?php endif; ?>
+                        </article>
+                    </div>
+                    <?php endwhile; ?>
+                </div>
+                <?php endif; wp_reset_postdata();?>
             </div>
         </section>
     </main>

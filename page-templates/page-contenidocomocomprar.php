@@ -65,7 +65,7 @@ Template Name: Contenido Cómo Comprar
                     </main>
                 </div>
                 <div class="col-xl-3 col-12">
-                    <?php get_sidebar(); ?>
+                    <?php get_sidebar('sidebar-principal'); ?>
                 </div>
             </div>
         </div>

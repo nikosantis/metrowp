@@ -50,7 +50,7 @@
             margin-bottom: 25px;
         }
         p {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             margin-bottom: 30px;
         }
     }
@@ -62,6 +62,14 @@
             padding-top: 70px;
             padding-bottom: 70px;
         }
+        p {
+            font-size: 1.125rem;
+        }
+        ul {
+            li {
+                font-size: 1.125rem;
+            }
+        }
     }
     .trayectoria-map {
         padding-top: 60px;
@@ -71,11 +79,8 @@
             padding-bottom: 60px;
         }
         &__map {
-            height: 500px;
+            position: relative;
             width: 100%;
-            @include MQ(md) {
-                height: 600px;
-            }
             h2 {
                 margin:0;
                 font-size: 12px;

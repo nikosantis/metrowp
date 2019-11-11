@@ -1,3 +1,48 @@
-.tengo-subsidio {
-
+.dsboxcontent {
+    .dsbox {
+        border: 1px solid $color-black;
+        margin-bottom: 35px;
+        &-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            background-color: $color-g;
+            border-bottom: 1px solid $color-black;
+        }
+        &-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: $color-m;
+            height: 90px;
+            padding: 0 30px;
+        }
+        &-col {
+            p {
+                font-size: 1rem;
+                color: #ffffff;
+                margin-bottom: 0;
+                &:first-child {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        &-footer {
+            height: 270px;
+            padding: 30px 20px;
+            h6 {
+                margin-bottom: 20px;
+            }
+            p {
+                color: $color-black;
+            }
+            .dsbox-row {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        }
+    }
 }

@@ -56,23 +56,7 @@ Template Name: Inicio
                                 <div class="col-xl-10 col-md-12 col-12">
                                     <div class="hero-intro__box p-4">
                                         <h5 class="hero-intro__box__titulo"><?php the_field('texto_formulario_comuna'); ?></h5>
-                                        <div class="selectproyecto">
-                                            <div class="dropdown">
-                                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    Seleccionar Comuna
-                                                </button>
-                                                <?php if( have_rows('comunas_disponibles') ): ?>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <?php while( have_rows('comunas_disponibles') ): the_row();
-                                                $comuna = get_sub_field('comuna');
-                                                ?>
-                                                    <a class="dropdown-item" href="#"><?php echo $comuna; ?></a>
-                                                <?php endwhile; ?>
-                                                </div>
-                                                <?php endif; ?>
-                                                <div class="selectproyecto-icon"><i class="fas fa-chevron-down"></i></div>
-                                            </div>
-                                        </div>
+                                        <?php include (TEMPLATEPATH . '/global-templates/selectcomuna.php'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +126,9 @@ Template Name: Inicio
                             <?php if( $estado_proyecto == 'no-activo' ): ?>
                                 <div class="proyecto-entrega">Agotado</div>
                             <?php else: ?>
+                                <?php if( get_field('etiqueta_informativa') ): ?>
                                 <div class="proyecto-entrega"><?php the_field('etiqueta_informativa'); ?></div>
+                                <?php endif; ?>
                             <?php endif; ?>
                         </article>
                     </div>

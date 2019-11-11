@@ -11,15 +11,6 @@
 ?>
 
     <footer class="footer">
-        <section class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <?php the_field('texto_legal_de_imagenes', 'option'); ?>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section class="footer-center">
             <div class="container">
                 <div class="row justify-content-center">
@@ -118,6 +109,15 @@
                                 <?php endif; ?>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footer-legal">
+            <div class="container">
+            <div class="row">
+                    <div class="col-12 text-center">
+                        <?php the_field('texto_legal_de_imagenes', 'option'); ?>
                     </div>
                 </div>
             </div>

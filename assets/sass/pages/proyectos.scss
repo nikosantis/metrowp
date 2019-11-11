@@ -1,0 +1,47 @@
+.seo-content {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.metro-seo {
+    background-color: $color-g;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    @include MQ(lg) {
+        padding-top: 90px;
+        padding-bottom: 90px;
+        margin-top: 50px;
+    }
+    &--titulo {
+        margin-bottom: 35px;
+        text-align: center;
+        @include MQ(lg) {
+            text-align: right;
+            margin-bottom: 0;
+        }
+    }
+    &--list {
+        margin-bottom: 35px;
+        @include MQ(lg) {
+            margin-bottom: 0;
+        }
+    }
+    p {
+        margin-bottom: 0;
+    }
+    .list-inline {
+        margin-bottom: 0;
+        &-item {
+            margin-bottom: 0;
+            vertical-align: middle;
+            a {
+                font-size: 0.875rem;
+            }
+            &:after {
+                content:", ";
+            }
+            &:last-child:after {
+                content:"";
+            }
+        }
+    }
+}

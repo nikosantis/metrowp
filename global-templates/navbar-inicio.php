@@ -1,5 +1,5 @@
-    <header class="header-home header-mgi fixed-top">
-        <nav class="navbar navbar-expand-xl navbar-light bg-light navbar-sticky sps sps--abv" id="navbarMGI">
+    <header class="header-home header-mgi top-sticky">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light navbar-sticky" id="navbarMGI">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?php echo esc_url( home_url('/') ); ?>">
                 <img src="<?php the_field('logo_principal', 'option'); ?>" alt="<?php bloginfo('name'); ?>">

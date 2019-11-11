@@ -16,7 +16,13 @@
 	<?php include (TEMPLATEPATH . '/global-templates/gtm-head.php'); ?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?php wp_title(''); ?></title>
+    <title>
+    <?php if(is_front_page() || is_home()){
+        echo get_bloginfo('name');
+		} else{
+			echo wp_title('');
+		}?>
+	</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>

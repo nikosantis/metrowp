@@ -17,11 +17,18 @@
 ?>
 <?php get_header();?>
 <body <?php body_class( 'body proyecto' ); ?>>
-	<?php include (TEMPLATEPATH . '/global-templates/gtm-body.php'); ?>
-    <header class="header-proyecto fixed-top">
+    <?php include (TEMPLATEPATH . '/global-templates/gtm-body.php'); ?>
     <?php include (TEMPLATEPATH . '/global-templates/navbar-proyectos.php'); ?>
-    </header>
-    <main class="main main-proyecto" role="main">
+    <section class="toptitle top-sticky">
+        <div class="toptitle-box">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="toptitle-titulo"><?php the_title();?></h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <header class="header-proyecto">
         <section class="hero" id="inicio">
             <div class="container-fluid">
                 <div class="row align-items-center position-relative">
@@ -57,10 +64,15 @@
         <section class="postintro">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 col-lg-8 col-xl-7 offset-lg-4 postintro-col px-0">
+                    <div class="col-xl-4 order-xl-1 col-12 order-2 postintro-docs pr-xl-0">
+                    <?php if( get_field('informativos') ): ?>
+                        <button type="button" class="btn btn-infos" data-toggle="modal" data-target="#documentacionInfo"><i class="fas fa-info-circle"></i> Informativos del Proyecto</button>
+                    <?php endif; ?>
+                    </div>
+                    <div class="col-xl-7 order-xl-2 col-12 order-1 px-0">
                         <div class="row justify-content-center no-gutters">
                             <div class="col-lg-6 col-12 postintro-ubicacion">
-                                <a href="#ubicacion">
+                                <a href="#ubicacion" class="btn btn-addr">
                                     <div class="postintro-ubicacion__map">
                                         <address class="postintro-ubicacion__map__direccion">
                                             <i class="fas fa-map-marker-alt"></i> <?php the_field('direccion_del_proyecto'); ?>
@@ -72,13 +84,15 @@
                                 <a href="#modelos" class="btn btn-cot">Ver Modelos</a>
                             </div>
                             <div class="col-lg-3 col-6 postintro-info">
-                                <a href="#saladeventas" class="btn btn-info">Solicitar Información del Proyecto</a>
+                                <a href="#saladeventas" class="btn btn-solinfo">Solicitar Información del Proyecto</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+    </header>
+    <main class="main main-proyecto" role="main">
         <section class="modelos" id="modelos">
             <div class="container">
                 <div class="row justify-content-center">
@@ -96,7 +110,7 @@
                     'post_status'       => 'publish',
                     'meta_key'			=> 'estado_de_modelo',
                     'orderby'			=> 'meta_value',
-                    'order'				=> 'DESC',
+                    'order'				=> 'ASC',
                     'meta_query' => array(
                         array(
                             'key' => 'vincular_modelo_a_proyecto',
@@ -126,16 +140,17 @@
                             </header>
                             <section class="modelo-detalle py-3">
                                 <div class="row">
-                                    <div class="col-8 pr-0">
+                                    <div class="col-7 pr-0">
                                         <h4 class="modelo-detalle__titulo"><?php the_title(); ?></h4>
                                         <span class="modelo-detalle__superficie"><?php the_field( 'metraje' ); ?></span>
                                         <h5 class="modelo-detalle__uf"><?php the_field( 'desde_uf' ); ?></h5>
                                         <p class="modelo-detalle__terreno"><?php the_field( 'terrenos_hasta' ); ?></p>
                                     </div>
-                                    <div class="col-4 align-self-center">
+                                    <div class="col-5 d-flex justify-content-center flex-column align-items-center px-3">
                                         <?php if( $estado_modelo == 'agotado'): ?>
                                         <?php else: ?>
-                                        <a href="<?php the_permalink(); ?>" class="btn btn-mgi">Cotizar</a>
+                                        <a href="<?php the_permalink(); ?>" class="btn btn-mgi mb-2">Ver Modelo</a>
+                                        <a href="<?php the_permalink(); ?>" class="btn btn-prim">Cotizar</a>
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -152,78 +167,67 @@
                 </div>
             </div>
         </section>
-        <?php if( get_field('titulo_seccion_informativos') ): ?>
-        <section class="documentacion">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 text-center">
-                        <h2 class="titulo"><?php the_field('titulo_seccion_informativos'); ?></h2>
-                        <h3 class="subtitulo"><?php the_field('subtitulo_seccion_informativos'); ?></h3>
-                        <button type="button" class="btn btn-mgi" data-toggle="modal" data-target="#documentacionInfo">Ver Más</button>
-                        <div class="modal fade" id="documentacionInfo" tabindex="-1" role="dialog" aria-labelledby="documentacionInfoLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-xl">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="documentacionInfoLabel"><?php the_field('titulo_seccion_informativos'); ?></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <?php if( have_rows('informativos') ): ?>
-                                            <div class="col-12 d-block d-sm-block d-md-block d-xl-none">
-                                                <?php while( have_rows('informativos') ): the_row();
+        <?php if( get_field('informativos') ): ?>
+        <div class="modal fade" id="documentacionInfo" tabindex="-1" role="dialog" aria-labelledby="documentacionInfoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="documentacionInfoLabel">Informativos del Proyecto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <?php if( have_rows('informativos') ): ?>
+                            <div class="col-12 d-block d-sm-block d-md-block d-xl-none">
+                                <?php while( have_rows('informativos') ): the_row();
 
-                                                $filepdf = get_sub_field('documento');
-                                                $filetitle = get_sub_field('nombre_del_documento');
-                                                ?>
-                                                <a href="<?php echo $filepdf; ?>" target="_blank" class="btn btn-mgi mb-3 mx-3"><?php echo $filetitle; ?></a>
-                                                <?php endwhile; ?>
-                                            </div>
-                                            <?php endif; ?>
-                                            <div class="col-12 d-sm-none d-none d-md-none d-xl-block">
-                                                <?php if( have_rows('informativos') ):$i=0; ?>
-                                                <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-                                                    <?php while( have_rows('informativos') ): the_row();
-                                                    $i++;
-                                                    $filepdf = get_sub_field('documento');
-                                                    $filetitle = get_sub_field('nombre_del_documento');
-                                                    ?>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link <?php if( $i < 2 ): ?>active<?php endif; ?>" id="pills-doc<?php echo $i; ?>-tab" data-toggle="pill" href="#pills-doc<?php echo $i; ?>" role="tab" aria-controls="pills-doc<?php echo $i; ?>" aria-selected="true"><?php echo $filetitle; ?></a>
-                                                    </li>
-                                                    <?php endwhile; ?>
-                                                </ul>
-                                                <?php endif; ?>
-                                                <div class="tab-content" id="pills-tabContent">
-                                                <?php if( have_rows('informativos') ):$i=0; ?>
-                                                    <?php while( have_rows('informativos') ): the_row();
-                                                    $i++;
-                                                    $filepdf = get_sub_field('documento');
-                                                    $filetitle = get_sub_field('nombre_del_documento');
-                                                    ?>
-                                                    <div class="tab-pane fade <?php if( $i < 2 ): ?>show active<?php endif; ?>" id="pills-doc<?php echo $i; ?>" role="tabpanel" aria-labelledby="pills-doc<?php echo $i; ?>-tab">
-                                                        <div class="pdfdoc<?php echo $i; ?>">
-                                                            <embed src="<?php echo $filepdf; ?>" type="application/pdf" width="100%" height="400px">
-                                                        </div>
-                                                    </div>
-                                                    <?php endwhile; ?>
-                                                </div>
-                                                <?php endif; ?>
-                                            </div>
+                                $filepdf = get_sub_field('documento');
+                                $filetitle = get_sub_field('nombre_del_documento');
+                                ?>
+                                <a href="<?php echo $filepdf; ?>" target="_blank" class="btn btn-mgi mb-3 mx-3"><?php echo $filetitle; ?></a>
+                                <?php endwhile; ?>
+                            </div>
+                            <?php endif; ?>
+                            <div class="col-12 d-sm-none d-none d-md-none d-xl-block">
+                                <?php if( have_rows('informativos') ):$i=0; ?>
+                                <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                                    <?php while( have_rows('informativos') ): the_row();
+                                    $i++;
+                                    $filepdf = get_sub_field('documento');
+                                    $filetitle = get_sub_field('nombre_del_documento');
+                                    ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link <?php if( $i < 2 ): ?>active<?php endif; ?>" id="pills-doc<?php echo $i; ?>-tab" data-toggle="pill" href="#pills-doc<?php echo $i; ?>" role="tab" aria-controls="pills-doc<?php echo $i; ?>" aria-selected="true"><?php echo $filetitle; ?></a>
+                                    </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                                <?php endif; ?>
+                                <div class="tab-content" id="pills-tabContent">
+                                <?php if( have_rows('informativos') ):$i=0; ?>
+                                    <?php while( have_rows('informativos') ): the_row();
+                                    $i++;
+                                    $filepdf = get_sub_field('documento');
+                                    $filetitle = get_sub_field('nombre_del_documento');
+                                    ?>
+                                    <div class="tab-pane fade <?php if( $i < 2 ): ?>show active<?php endif; ?>" id="pills-doc<?php echo $i; ?>" role="tabpanel" aria-labelledby="pills-doc<?php echo $i; ?>-tab">
+                                        <div class="pdfdoc<?php echo $i; ?>">
+                                            <embed src="<?php echo $filepdf; ?>" type="application/pdf" width="100%" height="400px">
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-mgi" data-dismiss="modal">Cerrar</button>
-                                    </div>
+                                    <?php endwhile; ?>
                                 </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-mgi" data-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
         <?php endif; ?>
         <section class="terminaciones" id="terminaciones">
             <div class="container">
@@ -244,7 +248,6 @@
                     </div>
                     <div class="col-lg-5 col-12 terminaciones-col__r" data-aos="fade-up-left">
                         <h2 class="titulo text-w">Terminaciones</h2>
-                        <h3 class="subtitulo text-w"><?php the_field('subtitulo_seccion_terminaciones'); ?></h3>
                         <div class="terminaciones-text">
                             <?php the_field('contenido_seccion_terminaciones'); ?>
                         </div>
@@ -277,7 +280,6 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5 col-12 barrio-col__l" data-aos="fade-up-right">
                         <h2 class="titulo">Barrio</h2>
-                        <h3 class="subtitulo"><?php the_field('subtitulo_seccion_barrio'); ?></h3>
                         <div class="barrio-text">
                             <?php the_field('contenido_seccion_barrio'); ?>
                         </div>
@@ -313,73 +315,263 @@
         </section>
         <?php endif; ?>
         <section class="ubicacion" id="ubicacion">
-            <div class="container">
+            <script src="https://maps.googleapis.com/maps/api/js?key=<?php the_field('api_google_maps', 'option'); ?>">
+            </script>
+            <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-lg-7 col-12 ubicacion-col__l" data-aos="fade-up-right">
-                        <div id="map"></div>
-                        <?php if( have_rows('datos_de_mapa') ):
-
-                        while( have_rows('datos_de_mapa') ): the_row();
-                            // vars
-                            $lat = get_sub_field('latitud');
-                            $lng = get_sub_field('longitud');
-                            $zoom = get_sub_field('zoom');
-                            $maptype = get_sub_field('tipo_de_mapa');
-                        ?>
+                        <div class="row no-gutters">
+                            <div class="col-xl-3 col-lg-12 ubicacion-mapfilter py-5">
+                                <div class="map-filter">
+                                    <div class="row no-gutters">
+                                        <div class="col-12">
+                                            <h5>Puntos de Interés</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-6 col-md-4 col-6">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="mapBanco" name="banco" onchange="filterMap(this.name, this.id)">
+                                                <label class="custom-control-label" for="mapBanco">Bancos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-6 col-md-4 col-6">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="mapCentroMedico" name="centro-medico" onchange="filterMap(this.name, this.id)">
+                                                <label class="custom-control-label" for="mapCentroMedico">Centros Médicos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-6 col-md-4 col-6">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="mapColegio" name="colegio" onchange="filterMap(this.name, this.id)">
+                                                <label class="custom-control-label" for="mapColegio">Colegios</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-6 col-md-4 col-6">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="mapJardin" name="jardin" onchange="filterMap(this.name, this.id)">
+                                                <label class="custom-control-label" for="mapJardin">Jardines Infantiles</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-6 col-md-4 col-6">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="mapMunicipio" name="municipio" onchange="filterMap(this.name, this.id)">
+                                                <label class="custom-control-label" for="mapMunicipio">Municipio</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-6 col-md-4 col-6">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="mapSupermercado" name="supermercado" onchange="filterMap(this.name, this.id)">
+                                                <label class="custom-control-label" for="mapSupermercado">Supermercados</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-6 col-md-4 col-6">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="mapEstadio" name="estadio" onchange="filterMap(this.name, this.id)">
+                                                <label class="custom-control-label" for="mapEstadio">Estadios</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-6 col-md-4 col-6">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="mapZoo" name="zoo" onchange="filterMap(this.name, this.id)">
+                                                <label class="custom-control-label" for="mapZoo">Zoológico</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-12">
+                                <div id="map"></div>
+                            </div>
+                        </div>
                         <script>
-                        function initMap() {
-                            var metro = {
-                                lat: <?php echo $lat; ?>,
-                                lng: <?php echo $lng; ?>
-                            };
-                            var nameU = '<?php the_title(); ?>';
-                            var map = new google.maps.Map(document.getElementById('map'), {
-                                zoom: <?php echo $zoom; ?>,
-                                mapTypeId: '<?php echo $maptype; ?>',
-                                center: metro
-                            });
-                            var contentString = '<div class="map-content">'+
-                            '<p class="map-content__p mb-0"><b>'+ nameU +'</b></p>'+
-                            '</div>';
-                            var infowindow = new google.maps.InfoWindow({
-                                content: contentString
-                            });
-                            <?php
-                            if( have_rows('markers_google_maps', 'option') ):
-                            while ( have_rows('markers_google_maps', 'option') ) : the_row();
-                            $icono = get_sub_field('icono');
+                            const checkbox1 = document.getElementById('mapBanco');
+                            const checkbox2 = document.getElementById('mapCentroMedico');
+                            const checkbox3 = document.getElementById('mapColegio');
+                            const checkbox4 = document.getElementById('mapJardin');
+                            const checkbox5 = document.getElementById('mapMunicipio');
+                            const checkbox6 = document.getElementById('mapSupermercado');
+                            const checkbox7 = document.getElementById('mapZoo');
+                            const checkbox8 = document.getElementById('mapEstadio');
+
+                            checkbox1.checked = true;
+                            checkbox2.checked = true;
+                            checkbox3.checked = true;
+                            checkbox4.checked = true;
+                            checkbox5.checked = true;
+                            checkbox6.checked = true;
+                            checkbox7.checked = true;
+                            checkbox8.checked = true;
+
+                            <?php if( have_rows('datos_de_mapa') ):
+
+                            while( have_rows('datos_de_mapa') ): the_row();
+                                // vars
+                                $lat = get_sub_field('latitud');
+                                $lng = get_sub_field('longitud');
+                                $zoom = get_sub_field('zoom');
+                                $maptype = get_sub_field('tipo_de_mapa');
                             ?>
-                            var image = '<?php echo $icono; ?>';
-                            <?php
-                            endwhile;
-                            endif;
-                            ?>
-                            var marker = new google.maps.Marker({
-                                position: metro,
-                                map: map,
-                                icon: image
-                            });
-                            google.maps.event.addListener(marker, 'click', function() {
-                                infowindow.open(map,marker);
-                            });
-                            infowindow.open(map,marker);
-                        }
-                        </script>
-                        <?php endwhile; ?>
-                        <?php endif; ?>
-                        <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=<?php the_field('api_google_maps', 'option'); ?>&callback=initMap">
+
+                            const mapLat = <?php echo $lat; ?>;
+                            const mapLng = <?php echo $lng; ?>;
+                            const mapZoom = <?php echo $zoom; ?>;
+
+                            <?php endwhile; endif; ?>
+
+                            var gmarkers1 = []
+                            var markers1 = [];
+
+                            const baseUrl = '<?php echo get_template_directory_uri(); ?>/assets/icons/';
+
+                            markers1 = [
+                                <?php if( have_rows('punto_del_proyecto_en_el_mapa') ):
+                                while( have_rows('punto_del_proyecto_en_el_mapa') ): the_row();
+                                    // vars
+                                    $lat = get_sub_field('latitud');
+                                    $lng = get_sub_field('longitud');
+                                ?>
+                                ['0', '<?php the_title();?>', <?php echo $lat; ?>, <?php echo $lng; ?>, 'proyecto', baseUrl + 'proyecto' + '.png'],
+                                <?php endwhile; endif; ?>
+                                <?php if( have_rows('puntos_de_interes_del_mapa') ): $i = 1;
+                                while( have_rows('puntos_de_interes_del_mapa') ): the_row();
+                                    $i++;
+                                    // vars
+                                    $titulo = get_sub_field('titulo_del_punto');
+                                    $lat = get_sub_field('latitud_del_punto');
+                                    $lng = get_sub_field('longitud_del_punto');
+                                    $cat = get_sub_field('categoria_del_punto');
+                                ?>
+                                ['<?php echo $i; ?>', '<?php echo $titulo; ?>', <?php echo $lat; ?>, <?php echo $lng; ?>, '<?php echo $cat; ?>', baseUrl + '<?php echo $cat; ?>' + '.png'],
+                                <?php endwhile; endif; ?>
+                            ];
+
+                            function initialize() {
+
+                                var center = new google.maps.LatLng(mapLat, mapLng);
+                                var mapOptions = {
+                                    zoom: mapZoom,
+                                    center: center,
+                                    styles: [
+                                        {
+                                            "featureType": "administrative",
+                                            "elementType": "geometry",
+                                            "stylers": [
+                                                {
+                                                    "visibility": "off"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "featureType": "poi",
+                                            "stylers": [
+                                                {
+                                                    "visibility": "off"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "featureType": "road",
+                                            "elementType": "labels.icon",
+                                            "stylers": [
+                                                {
+                                                    "visibility": "off"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "featureType": "transit",
+                                            "stylers": [
+                                                {
+                                                    "visibility": "off"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+
+                                map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                                for (i = 0; i < markers1.length; i++) {
+                                    addMarker(markers1[i]);
+                                }
+                            }
+
+                            function addMarker(marker) {
+                                var contentString = '<div id="content"><h2>' + marker[1] + '</h2></div>';
+                                var category = marker[4];
+                                var title = marker[1];
+                                var pos = new google.maps.LatLng(marker[2], marker[3]);
+                                var content = contentString;
+                                var icon = marker[5];
+
+                                marker1 = new google.maps.Marker({
+                                    title: title,
+                                    position: pos,
+                                    category: category,
+                                    map: map,
+                                    icon: {
+                                        url: icon,
+                                    }
+                                });
+
+                                const infowindow = new google.maps.InfoWindow({
+                                    content: content,
+                                    maxWidth: 200
+                                });
+
+                                gmarkers1.push(marker1);
+
+                                // Marker click listener
+                                google.maps.event.addListener(marker1, 'click', (function (marker1, title) {
+                                    return function () {
+                                        infowindow.setContent(title);
+                                        infowindow.open(map, marker1);
+                                    }
+                                })(marker1, title));
+                            }
+
+                            filterFalse = function (category) {
+                                for (i = 0; i < gmarkers1.length; i++) {
+                                    marker = gmarkers1[i];
+                                    // If is same category or category not picked
+                                    if (marker.category == category || category.length === 0) {
+                                        marker.setVisible(false);
+                                    }
+                                }
+                            }
+
+                            filterTrue = function (category) {
+                                for (i = 0; i < gmarkers1.length; i++) {
+                                    marker = gmarkers1[i];
+                                    // If is same category or category not picked
+                                    if (marker.category == category || category.length === 0) {
+                                        marker.setVisible(true);
+                                    }
+                                }
+                            }
+                            function filterMap(obj, chk) {
+                                if (document.getElementById(chk).checked) {
+                                    filterTrue(obj);
+                                } else {
+                                    filterFalse(obj);
+                                }
+
+                            }
+                            initialize();
+
                         </script>
                     </div>
                     <div class="col-lg-5 col-12 ubicacion-col__r" data-aos="fade-up-left">
-                        <h2 class="titulo text-w">Ubicación</h2>
-                        <address class="ubicacion-direccion">
-                            <i class="fas fa-map-marker-alt"></i> <?php the_field('direccion_del_proyecto'); ?>
-                        </address>
-                        <h3 class="subtitulo text-w"><?php the_field('subtitulo_seccion_ubicacion'); ?></h3>
-                        <div class="ubicacion-text"><?php the_field('contenido_seccion_ubicacion'); ?></div>
-                        <a href="<?php the_field('url_google_maps'); ?>" class="btn btn-mgi mt-4" target="_blank"><i class="fas fa-map-marked-alt"></i> Ir con Google Maps</a>
-                        <a href="<?php the_field('url_waze'); ?>" class="btn btn-mgi mt-4" target="_blank"><i class="fab fa-waze"></i> Ir con Waze</a>
+                        <div class="ubicacion-box">
+                            <h2 class="titulo text-w">Ubicación</h2>
+                            <address class="ubicacion-direccion">
+                                <i class="fas fa-map-marker-alt"></i> <?php the_field('direccion_del_proyecto'); ?>
+                            </address>
+                            <h3 class="subtitulo text-w"><?php the_field('subtitulo_seccion_ubicacion'); ?></h3>
+                            <div class="ubicacion-text"><?php the_field('contenido_seccion_ubicacion'); ?></div>
+                            <a href="<?php the_field('url_google_maps'); ?>" class="btn btn-mgi mt-4" target="_blank"><i class="fas fa-map-marked-alt"></i> Ir con Google Maps</a>
+                            <a href="<?php the_field('url_waze'); ?>" class="btn btn-mgi mt-4" target="_blank"><i class="fab fa-waze"></i> Ir con Waze</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -409,13 +601,17 @@
                                     <li class="mb-2 d-flex">
                                         <i class="fas fa-mobile-alt fa-lg"></i>
                                         <div class="ml-3">
-                                            <span class="saladeventas-ul__text ml-1"><a href="tel:<?php the_field('telefono_asesor_inmobiliario'); ?>"><?php the_field('telefono_asesor_inmobiliario'); ?></a></span>
+                                            <span class="saladeventas-ul__text ml-1">
+                                                <a href="tel:<?php the_field('telefono_asesor_inmobiliario'); ?>"><?php the_field('telefono_asesor_inmobiliario'); ?></a>
+                                            </span>
                                         </div>
                                     </li>
                                     <li class="mb-2 d-flex">
                                             <i class="fab fa-whatsapp fa-lg"></i>
                                         <div class="ml-3">
-                                            <span class="saladeventas-ul__text"><a href="<?php the_field('whatsapp_asesor_inmobiliario'); ?>">+<?php the_field('telefono_asesor_inmobiliario'); ?></a></span>
+                                            <span class="saladeventas-ul__text">
+                                                <a href="https://wa.me/<?php the_field('whatsapp_asesor_inmobiliario'); ?>?text=<?php the_field('texto_para_whatsapp'); ?>"><?php the_field('telefono_asesor_inmobiliario'); ?></a>
+                                            </span>
                                         </div>
                                     </li>
                                 </ul>

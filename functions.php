@@ -5,7 +5,8 @@ $mgiwp_includes = array(
 	'/setup.php',
 	'/enqueue.php',
 	'/class-wp-bootstrap-navwalker.php',
-	'/cpt.php'
+	'/cpt.php',
+	'/widgets.php'
 );
 foreach ( $mgiwp_includes as $file ) {
 	$filepath = locate_template( '/inc' . $file );

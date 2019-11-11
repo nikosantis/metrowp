@@ -4,13 +4,25 @@
     line-height: 1.5;
     border-radius: 0;
 }
+.btn-prim {
+    color: #ffffff;
+    background-color: $color-h;
+    border-color: $color-h;
+    font-weight: 700;
+    text-transform: uppercase;
+    &:hover, &:focus, &:active {
+        color: #ffffff;
+        background-color: $color-hh;
+        border-color: $color-hh;
+    }
+}
 .btn-mgi {
     color: #ffffff;
     background-color: $color-m;
     border-color: $color-m;
     font-weight: 700;
     text-transform: uppercase;
-    .btn-mgi:hover, .btn-mgi:focus, .btn-mgi.focus {
+    &:hover, &:focus, &:active {
         color: #ffffff;
         background-color: $color-mb;
         border-color: $color-mb;
@@ -23,7 +35,7 @@
     font-weight: 700;
     text-transform: uppercase;
     border: none;
-    .btn-mgi-xl:hover, .btn-mgi-xl:focus, .btn-mgi-xl.focus {
+    &:hover, &:focus, &:active {
         color: #ffffff;
         background-color: $color-mb;
         border-color: $color-mb;
@@ -36,16 +48,15 @@
     font-weight: 700;
     text-transform: uppercase;
     border: none;
-    .btn-back:hover, .btn-back:focus, .btn-back.focus {
+    &:hover, &:focus, &:active {
         color: #ffffff;
-        background-color: $color-m;
-        border-color: $color-m;
+        background-color: $color-hh;
+        border-color: $color-hh;
     }
 }
-.btn-cot {
-    background-color: $color-m;
-    color: #ffffff;
-    padding: 35px 0px;
+.btn-addr {
+    background-color: $color-g;
+    color: $color-black;
     font-weight: 500;
     text-transform: uppercase;
     position: relative;
@@ -54,28 +65,60 @@
     width: 100%;
     font-size: 1.25rem;
     height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        margin-right: 5px;
+        font-size: 25px;
+    }
     @include MQ(md) {
-        padding: 33px 10px;
         font-size: 1.5rem;
     }
     @include MQ(lg) {
-        padding: 40px 0px;
         font-size: 1rem;
     }
     @include MQ(xl) {
-        padding: 35px 0px;
         font-size: 1.125rem;
     }
-    .btn-cot:hover, .btn-cot:focus, .btn-cot.focus {
+    &:hover, &:focus, &:active {
+        color: $color-black;
+        background-color: $color-g2;
+        border-color: $color-g2;
+    }
+}
+.btn-cot {
+    background-color: $color-m;
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 999;
+    border: none;
+    width: 100%;
+    font-size: 1.25rem;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include MQ(md) {
+        font-size: 1.5rem;
+    }
+    @include MQ(lg) {
+        font-size: 1rem;
+    }
+    @include MQ(xl) {
+        font-size: 1.125rem;
+    }
+    &:hover, &:focus, &:active {
         color: #ffffff;
         background-color: $color-mb;
         border-color: $color-mb;
     }
 }
-.btn-info {
+.btn-solinfo {
     background-color: $color-h;
     color: #ffffff;
-    padding: 12px 10px;
     font-weight: 500;
     text-transform: uppercase;
     position: relative;
@@ -85,24 +128,61 @@
     font-size: 1.125rem;
     height: 100px;
     line-height: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        margin-right: 5px;
+        font-size: 25px;
+        vertical-align: -5px;
+    }
     @include MQ(md) {
-        padding: 18px 10px;
         font-size: 1.5rem;
     }
     @include MQ(lg) {
-        padding: 18px 10px;
         font-size: 1rem;
     }
     @include MQ(xl) {
-        padding: 12px 10px;
         font-size: 1.125rem;
     }
-    .btn-info:hover, .btn-info:focus, .btn-info.focus {
+    &:hover, &:focus, &:active {
+        color: #ffffff;
+        background-color: $color-hh;
+        border-color: $color-hh;
+    }
+}
+.btn-infos {
+    background-color: rgba( $color-m,.7);
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 999;
+    border: none;
+    width: 100%;
+    font-size: 1.125rem;
+    height: 100px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        margin-right: 5px;
+        font-size: 25px;
+        vertical-align: -5px;
+    }
+    @include MQ(md) {
+        font-size: 1.5rem;
+    }
+    @include MQ(lg) {
+        font-size: 1rem;
+    }
+    @include MQ(xl) {
+        font-size: 1.125rem;
+    }
+    &:hover, &:focus, &:active {
         color: #ffffff;
         background-color: $color-m;
         border-color: $color-m;
     }
-}
-.btn-info:hover, .btn-info:focus, .btn-info.focus {
-    color: #ffffff;
 }

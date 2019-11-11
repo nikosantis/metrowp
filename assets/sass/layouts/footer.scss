@@ -3,16 +3,17 @@
     @include MQ(lg) {
         text-align: left;
     }
-    &-top {
-        background-color: #ffffff;
+    &-legal {
+        background-color: $color-h;
         padding-top: 45px;
         padding-bottom: 45px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         p {
-            color: $color-h;
+            color: #ffffff;;
             margin: 0;
             font-size: 0.75rem;
             a {
-                color: $color-h;
+                color: #ffffff;;
                 font-weight: bold;
             }
         }

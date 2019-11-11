@@ -1,4 +1,4 @@
-        <nav class="navbar navbar-expand-xl navbar-light bg-light navbar-sticky sps sps--abv" id="navbarProyecto">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light top-sticky" id="navbarProyecto">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?php echo esc_url( home_url('/') ); ?>">
                     <img src="<?php the_field('logo_principal', 'option'); ?>" alt="<?php bloginfo('name'); ?>">
@@ -32,6 +32,3 @@
                 <a href="<?php echo esc_url( home_url('/') ); ?>" class="btn btn-back d-none d-xl-inline-block mb-3 mb-md-0 ml-md-3"><i class="fas fa-chevron-left"></i> Volver</a>
             </div>
         </nav>
-        <div class="header-proyecto__nombre sps sps--abv" data-sps-offset="480">
-            <h4 class="header-proyecto__nombre__titulo"><?php the_title();?></h4>
-        </div>

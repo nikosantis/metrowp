@@ -1,4 +1,4 @@
-.selectproyecto {
+.selectcomuna {
     .dropdown {
         background-color: #ffffff;
         &-toggle {
@@ -38,4 +38,21 @@
     border-radius: 0;
     height: calc(1.5em + 1.875rem + 2px);
     padding: 0.9375rem 0.9375rem;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: $color-m;
+    background-color: $color-m;
+}
+div.wpcf7-mail-sent-ok {
+    color: #ffffff;
+}
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+    color: #ffffff;
+}
+.formcotizar {
+    label.error {
+        color: #ffffff;
+    }
 }

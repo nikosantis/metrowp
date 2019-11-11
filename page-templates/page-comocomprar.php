@@ -70,7 +70,7 @@ Template Name: Cómo Comprar
                     $url = get_sub_field('enlace_boton');
                     $titulo = get_sub_field('texto_boton');
                     ?>
-                    <div class="col-3 text-center">
+                    <div class="col-md-4 col-6 text-center">
                         <a href="<?php echo $url; ?>" class="comocomprar-link" title="<?php echo $titulo; ?>">
                             <div class="comocomprar-box bg-m d-flex justify-content-center align-items-center">
                                 <h3 class="comocomprar-box__titulo"><?php echo $titulo; ?></h3>

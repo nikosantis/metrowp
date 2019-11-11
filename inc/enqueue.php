@@ -25,8 +25,6 @@ function metropwp_scripts() {
     wp_enqueue_script('sbjs');
 	wp_register_script('owl-carousel', get_template_directory_uri() . '/assets/plugins/OwlCarousel/owl.carousel.min.js', false, null, true);
 	wp_enqueue_script('owl-carousel');
-	wp_register_script('scrollPosStyler', get_template_directory_uri() . '/assets/plugins/scrollPosStyler/scrollPosStyler.min.js', false, null, true);
-	wp_enqueue_script('scrollPosStyler');
 	wp_register_script('simpleParallax', get_template_directory_uri() . '/assets/plugins/simpleParallax/simpleParallax.min.js', false, null, true);
 	wp_enqueue_script('simpleParallax');
 

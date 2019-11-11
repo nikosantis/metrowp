@@ -10,9 +10,9 @@ function metropwp_setup() {
 	update_option('thumbnail_size_w', 170);
 	update_option('medium_size_w', 470);
 	update_option('large_size_w', 970);
-	add_image_size('proyecto_thumb', 350, 220, true);
+	add_image_size('proyecto_thumb', 350, 260, true);
 	add_image_size('home_carousel', 830, 500, true);
-	add_image_size('modelo_thumb', 350, 220, true);
+	add_image_size('modelo_thumb', 350, 260, true);
 	add_image_size('modelo_carousel', 830, 500, true);
 }
 add_action('init', 'metropwp_setup');

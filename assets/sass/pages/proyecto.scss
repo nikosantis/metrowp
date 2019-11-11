@@ -1,13 +1,54 @@
+.toptitle {
+    opacity: 0;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    background-color: $color-h;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin-top: 87px;
+    @include MQ(md) {
+        margin-top: 90px;
+    }
+    @include MQ(lg) {
+        margin-top: 96px;
+        width: 360px;
+    }
+    &.sticky {
+        opacity: 1;
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+    }
+    &-box {
+        width: 100%;
+        text-align: center;
+        @include MQ(lg) {
+            text-align: left;
+            padding-left: 35px;
+        }
+    }
+    &-titulo {
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+}
 .proyecto {
     .hero {
         position: relative;
-        padding-top: 71px;
-        @include MQ(md) {
-            padding-top: 74px;
-        }
-        @include MQ(lg) {
-            padding-top: 80px;
-        }
         &-col {
             padding-right: 0;
             padding-left: 0;
@@ -74,37 +115,18 @@
                 padding-left: 15px;
             }
         }
+        &-docs {
+            padding-right: 0;
+            padding-left: 0;
+            @include MQ(xl) {
+                padding-left: 15px;
+                padding-right: 0;
+            }
+        }
         &-ubicacion {
             &__map {
-                height: 100px;
-                padding: 0 20px;
-                background-color: #f5f5f5;
-                text-align: center;
-                color: #373f48;
-                font-weight: 400;
-                margin: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 &__direccion {
-                    font-size: 1.25rem;
                     margin: 0;
-                    @include MQ(sm) {
-                        font-size: 1.5rem;
-                    }
-                    @include MQ(md) {
-                        font-size: 1.5rem;
-                    }
-                    @include MQ(lg) {
-                        font-size: 1.125rem;
-                    }
-                    @include MQ(xl) {
-                        font-size: 1.25rem;
-                    }
-                    svg {
-                        margin-right: 5px;
-                        font-size: 25px;
-                    }
                 }
             }
         }
@@ -137,6 +159,9 @@
             position: relative;
             &-thumb {
                 overflow: hidden;
+                img {
+                    width: 100%;
+                }
             }
             &-detalle {
                 &__titulo {
@@ -171,6 +196,7 @@
                 text-transform: uppercase;
                 padding: 10px 15px;
                 font-weight: 500;
+                font-size: 0.75rem;
             }
             &.modelo-agotado {
                 .modelo-thumb {
@@ -219,11 +245,15 @@
         }
         &-text {
             ul {
-                padding-left: 0;
                 list-style: none;
+                padding-left: 0;
+                @include MQ(lg) {
+                    list-style: disc;
+                    padding-left: 15px;
+                }
                 li {
                     color: #ffffff;
-                    font-size: 1rem;
+                    font-size: 1.125rem;
                     margin-bottom: 5px;
                     font-weight: 300;
                 }
@@ -275,11 +305,15 @@
         }
         &-text {
             ul {
-                padding-left: 0;
                 list-style: none;
+                padding-left: 0;
+                @include MQ(lg) {
+                    list-style: disc;
+                    padding-left: 15px;
+                }
                 li {
                     color: #000000;
-                    font-size: 0.9375rem;
+                    font-size: 1.125rem;
                     margin-bottom: 5px;
                     font-weight: 300;
                 }
@@ -290,12 +324,39 @@
         padding-top: 60px;
         padding-bottom: 60px;
         &-col__l {
-            padding: 0;
+            padding-left: 0;
+            padding-right: 0;
+            @include MQ(lg) {
+                padding-left: 15px;;
+            }
         }
         &-col__r {
+            padding-left: 0;
+            padding-right: 0;
+            @include MQ(lg) {
+                padding-right: 15px;;
+            }
+        }
+        &-mapfilter {
+            background-color: $color-g;
+            .map-filter {
+                padding-left: 15px;
+                padding-right: 15px;
+                text-align: left;
+                @include MQ(md) {
+                    text-align: center;
+                }
+                @include MQ(lg) {
+                    text-align: left;
+                }
+                h5 {
+                    margin-bottom: 35px;
+                }
+            }
+        }
+        &-box {
             background-color: $color-h;
-            padding-top: 60px;
-            padding-bottom: 60px;
+            padding: 60px 15px;
             text-align: center;
             @include MQ(lg) {
                 padding: 75px 60px;
@@ -303,7 +364,7 @@
             }
         }
         #map {
-            height: 400px;
+            height: 450px;
         }
         &-direccion {
             font-size: 1rem;
