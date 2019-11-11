@@ -13,6 +13,7 @@
  */
 
 get_header();
+// sin uso
 ?>
 <body>
 	<?php include (TEMPLATEPATH . '/global-templates/gtm-body.php'); ?>
